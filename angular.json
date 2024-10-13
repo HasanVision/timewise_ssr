@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "allowedCommonJsDependencies": ["sequelize", "sequelize-typescript"],
+            "allowedCommonJsDependencies": ["sequelize", "sequelize-typescript", "dotenv"],
             "outputPath": "dist/timewise_ssr",
             "index": "src/index.html",
             "browser": "src/main.ts",

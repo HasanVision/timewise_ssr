@@ -4,7 +4,7 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
-import sequelize from './config/db';
+import db from './models/index.js';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -50,7 +50,7 @@ async function run(): Promise<void> {
 
   try {
     // Test Sequelize connection
-    await sequelize.authenticate();
+    await db.sequelize.authenticate();
     console.log('Database connected successfully.');
 
     // Start up the Node server
