@@ -5,6 +5,10 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
 import db from './models/index.js';
+import { sessionConfig } from './api/config/sessionConfig.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -17,6 +21,8 @@ export function app(): express.Express {
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
+
+  server.use(sessionConfig);
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
