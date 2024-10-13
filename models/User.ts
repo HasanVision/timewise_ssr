@@ -11,28 +11,43 @@ export class User extends Model<User> {
     type: DataType.STRING,
     allowNull: false,
   })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  firstName!: string;  // Define the username field
+  firstName!: string;  // First name field
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  lastName!: string; 
+  lastName!: string;  // Last name field
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
     unique: true,
   })
-  primaryEmail!: string;  // Define the email field
+  primaryEmail!: string;  // Primary email field
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+    unique: true,
+  })
+  secondaryEmail?: string;  // Secondary email field (optional)
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  primaryEmailVerified?: Date;  // Date when primary email was verified (optional)
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  secondaryEmailVerified?: Date;  // Date when secondary email was verified (optional)
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  password!: string;  // Define the password field
+  password!: string;  // Password field
 }

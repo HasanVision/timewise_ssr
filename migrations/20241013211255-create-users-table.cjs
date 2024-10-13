@@ -11,14 +11,31 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      username: {
+      firstName: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      email: {
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      primaryEmail: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true
+      },
+      secondaryEmail: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: true
+      },
+      primaryEmailVerified: {
+        type: Sequelize.DATE,
+        allowNull: true
+      },
+      secondaryEmailVerified: {
+        type: Sequelize.DATE,
+        allowNull: true
       },
       password: {
         type: Sequelize.STRING,

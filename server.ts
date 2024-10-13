@@ -30,6 +30,8 @@ export function app(): express.Express {
   server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
+    console.log('Request URL:', `${protocol}://${headers.host}${originalUrl}`);
+
     commonEngine
       .render({
         bootstrap,
