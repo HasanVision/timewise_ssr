@@ -1,9 +1,10 @@
 'use strict';
 
+'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    // Creating the 'users' table
     await queryInterface.createTable('users', {
       id: {
         type: Sequelize.INTEGER,
@@ -55,27 +56,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    // Dropping the 'users' table in case of rollback
     await queryInterface.dropTable('users');
   }
 };
-
-
-
-/** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // Add new column 'role'
-    await queryInterface.addColumn('users', 'role', {
-      type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: 'user', 
-    });
-  },
-
-  async down(queryInterface, Sequelize) {
-    // Remove column 'role' in case of rollback
-    await queryInterface.removeColumn('users', 'role');
-  }
-};
-

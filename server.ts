@@ -4,7 +4,7 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
-import db from './models/db.js';
+import db from './models/index.js';
 import { sessionConfig } from './api/config/sessionConfig.js';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
@@ -27,6 +27,8 @@ export function app(): express.Express {
   server.set('views', browserDistFolder);
 
   server.use(sessionConfig);
+
+  
 
   server.use(cors({
     origin: 'http://localhost:4200',  // Your frontend URL

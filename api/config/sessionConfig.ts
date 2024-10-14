@@ -1,6 +1,6 @@
 import session from 'express-session';
 import SequelizeStoreInit from 'connect-session-sequelize';
-import  db  from '../../models/db.js'; 
+import  db  from '../../models/index';  // Ensure the path to the Sequelize instance is correct
 
 
 // Initialize Sequelize session store
@@ -15,7 +15,7 @@ sessionStore.sync();
 
 // Export session configuration
 export const sessionConfig = session({
-  secret: process.env['SESSION_SECRET'] || 'fallback-secret-key',
+  secret: process.env['SESSION_SECRET'] || 'secret',
   store: sessionStore,
   resave: false,
   saveUninitialized: false,
