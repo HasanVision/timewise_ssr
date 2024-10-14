@@ -1,53 +1,66 @@
-// models/User.ts
-
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { CreationOptional } from 'sequelize';
+
+// Define the attributes for the User model
+interface UserAttributes {
+  id: number;
+  firstName: string;
+  lastName: string;
+  primaryEmail: string;
+  password: string;
+  primaryEmailVerified?: Date;
+  secondaryEmailVerified?: Date;
+}
+
+// Define the creation attributes (which omit the auto-generated fields like `id`)
+interface UserCreationAttributes extends Partial<UserAttributes> {
+  firstName: string;
+  lastName: string;
+  primaryEmail: string;
+  password: string;
+}
 
 @Table({
-  tableName: 'users',  // The name of the table in the database
-  timestamps: true,    // Automatically add createdAt and updatedAt fields
+  tableName: 'users',
+  timestamps: true,
 })
-export class User extends Model<User> {
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  firstName!: string;  // First name field
+export class User extends Model<UserAttributes, UserCreationAttributes> {
+  declare id: CreationOptional<number>;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  lastName!: string;  // Last name field
+  firstName: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  lastName!: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
     unique: true,
   })
-  primaryEmail!: string;  // Primary email field
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-    unique: true,
-  })
-  secondaryEmail?: string;  // Secondary email field (optional)
-
-  @Column({
-    type: DataType.DATE,
-    allowNull: true,
-  })
-  primaryEmailVerified?: Date;  // Date when primary email was verified (optional)
-
-  @Column({
-    type: DataType.DATE,
-    allowNull: true,
-  })
-  secondaryEmailVerified?: Date;  // Date when secondary email was verified (optional)
+  primaryEmail!: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  password!: string;  // Password field
+  password!: string;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  primaryEmailVerified?: Date;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  secondaryEmailVerified?: Date;
 }

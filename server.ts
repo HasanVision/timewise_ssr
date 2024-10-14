@@ -4,15 +4,18 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
-import db from './models/index.js';
+import db from './models/db.js';
 import { sessionConfig } from './api/config/sessionConfig.js';
 import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import authRoutes from './api/auth/authRoutes.js';
 
 dotenv.config();
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+  server.use(bodyParser.json());
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
@@ -23,6 +26,8 @@ export function app(): express.Express {
   server.set('views', browserDistFolder);
 
   server.use(sessionConfig);
+  
+  server.use('/api', authRoutes);
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });

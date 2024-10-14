@@ -59,3 +59,22 @@ module.exports = {
     await queryInterface.dropTable('users');
   }
 };
+
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    // Add new column 'role'
+    await queryInterface.addColumn('users', 'role', {
+      type: Sequelize.STRING,
+      allowNull: true,
+      defaultValue: 'user',  // Optional default value
+    });
+  },
+
+  async down(queryInterface, Sequelize) {
+    // Remove column 'role' in case of rollback
+    await queryInterface.removeColumn('users', 'role');
+  }
+};
