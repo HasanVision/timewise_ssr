@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, ForeignKey, AllowNull } from 'sequelize-typescript';
 import { User } from './User'; // Ensure the path is correct
 
 @Table({
@@ -16,7 +16,7 @@ export class VerificationToken extends Model {
     type: DataType.STRING,
     allowNull: false,
   })
-  email!: string;
+  primaryEmail!: string;
 
   @ForeignKey(() => User)
   @Column({

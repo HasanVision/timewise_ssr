@@ -1,11 +1,11 @@
 import { VerificationToken } from '../../models/pVerificationT'
 
 export const getMagicVerificationTokenByEmail = async (
-    email: string
+    primaryEmail: string
 ) => {
     try {
         return await VerificationToken.findOne({
-            where: { email }
+            where: { primaryEmail }
         });
     } catch {
         return null;

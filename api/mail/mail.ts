@@ -6,16 +6,22 @@ import { Resend } from "resend";
 const resend = new Resend(process.env["RESEND_API_KEY"]);
 const domain = process.env["DOMAIN"];
 
-export const sendMagicLinkEmail = async (email: string, token: string) => {
-    const magicLink = `${domain}/magic-link?token=${token}`;
-  
+export const sendMagicLinkEmail = async (primaryEmail: string, token: string) => {
+  const magicLink = `${domain}/magic-link?token=${token}`;
+  console.log(`Sending magic link email to ${primaryEmail} with link: ${magicLink}`);
+
+  try {
     await resend.emails.send({
-        from: "confirm@oxygen365.net",
-      to: email,
+      from: "confirm@oxygen365.net",
+      to: primaryEmail,
       subject: "Your Magic Login Link",
-      html: `<p>Click <a href="${magicLink}"> here </a> to log in to your account!</p>`,
+      html: `<p>Click <a href="${magicLink}">here</a> to log in to your account!</p>`,
     });
-  };
+    console.log(`Magic link email sent to ${primaryEmail}`);
+  } catch (error) {
+    console.error(`Failed to send magic link email to ${primaryEmail}:`, error);
+  }
+};
 
 //   export const sendWelcomeEmail = async (email: string, firstName: string) => {
 //     try {
