@@ -2,7 +2,7 @@
 
 // declare module 'express-session' {
 //   interface SessionData {
-//     userId: string;  // Add your properties here
+//     userId: number;  // Add your properties here
 //   }
 // }
 

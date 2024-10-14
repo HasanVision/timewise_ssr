@@ -1,6 +1,6 @@
 import { Request, RequestHandler, Response } from 'express';
 import bcrypt from 'bcryptjs';
-import { User } from '../../models/User';  // Ensure the path to the User model is correct
+import { User } from '../../models/User'; 
 
 declare module 'express-session' {
   interface SessionData {
@@ -9,8 +9,8 @@ declare module 'express-session' {
 }
 
 const login: RequestHandler = async (req, res) => {
-  console.log('Login route hit');
-  const { email, password } = req.body;  // Ensure `email` matches the field sent from the frontend
+//   console.log('Login route hit');
+  const { email, password } = req.body; 
 
   try {
     // Check if user exists
@@ -21,11 +21,11 @@ const login: RequestHandler = async (req, res) => {
     }
 
     // Debugging: Log retrieved user details
-    console.log('Retrieved user:', user);
+   //  console.log('Retrieved user:', user);
     
     // Retrieve the password through the Sequelize getter
-    const storedPassword = user.get('password') as string;
-    console.log('Retrieved password:', storedPassword);
+    const storedPassword = user.get('password') ;
+   //  console.log('Retrieved password:', storedPassword);
 
     // Compare password
     const isMatch = await bcrypt.compare(password, storedPassword);

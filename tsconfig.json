@@ -28,7 +28,6 @@
   "include": [
     "src/**/*.ts",
     "./models/types.d.ts",
-    "./types/**/*.d.ts"
   ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

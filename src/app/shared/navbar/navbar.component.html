@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="navbar__left">
+    <!-- Dashboard button on the left -->
+    <div *ngIf="isLoggedIn">
+      <app-button>
+        <a href="/dashboard">Dashboard</a>
+      </app-button>
+    </div>
+  </div>
+
+  <div class="navbar__right">
+    <!-- Settings and login/logout buttons on the right -->
+    <div *ngIf="isLoggedIn">
+      <app-button>
+        <a href="/settings">Settings</a>
+      </app-button>
+    </div>
+
+    <div *ngIf="isLoggedIn">
+      <app-button label="Logout" (click)="logout()">
+      
+      </app-button>
+    </div>
+
+    <div *ngIf="!isLoggedIn">
+      <app-button>
+        <a href="/login">Login</a>
+      </app-button>
+    </div>
+  </div>
+</nav>
+
+  <!--  TODO: ADD LOGO HERE -->

@@ -73,7 +73,7 @@ async function run(): Promise<void> {
   const port = process.env['PORT'] || 4000;
 
   try {
-    // Test Sequelize connection
+
     // await db.sequelize.authenticate();
     await db.sequelize.sync();  // This ensures that the models are synced with the database
     console.log('Database connected successfully.');
@@ -85,7 +85,7 @@ async function run(): Promise<void> {
     });
   } catch (error) {
     console.error('Unable to connect to the database:', error);
-    process.exit(1);  // Exit if the database connection fails
+    process.exit(1);  
   }
 }
 
