@@ -9,6 +9,7 @@ import { sessionConfig } from './api/config/sessionConfig.js';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import authRoutes from './api/auth/authRoutes.js';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -26,6 +27,14 @@ export function app(): express.Express {
   server.set('views', browserDistFolder);
 
   server.use(sessionConfig);
+
+  server.use(cors({
+    origin: 'http://localhost:4200',  // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true  // Add this if you're dealing with cookies or session-based authentication
+  }));
+  server.options('*', cors());  // Responds to preflight requests
   
   server.use('/api', authRoutes);
 
@@ -63,7 +72,8 @@ async function run(): Promise<void> {
 
   try {
     // Test Sequelize connection
-    await db.sequelize.authenticate();
+    // await db.sequelize.authenticate();
+    await db.sequelize.sync();  // This ensures that the models are synced with the database
     console.log('Database connected successfully.');
 
     // Start up the Node server

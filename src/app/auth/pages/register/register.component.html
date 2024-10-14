@@ -1,6 +1,6 @@
 <app-card title="Register 👤 ">
     <div class="login__container--form">
-          <form [formGroup]="form" (submit)="onSubmit()">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <app-input-text
               class="input-field"
               type="text"
@@ -21,7 +21,7 @@
     
             <app-input-text
               class="input-field"
-              type="primaryEmail"
+              type="email"
               formControlName="primaryEmail"
               [control]="form.get('primaryEmail')"
               placeholder="Email"

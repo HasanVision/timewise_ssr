@@ -60,7 +60,7 @@ module.exports = {
   }
 };
 
-'use strict';
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -69,7 +69,7 @@ module.exports = {
     await queryInterface.addColumn('users', 'role', {
       type: Sequelize.STRING,
       allowNull: true,
-      defaultValue: 'user',  // Optional default value
+      defaultValue: 'user', 
     });
   },
 
