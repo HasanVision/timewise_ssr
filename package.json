@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:timewise_ssr": "node dist/timewise_ssr/server/server.mjs",
-    "serve:ssr": "npm run serve:ssr:timewise_ssr"
+    "serve:ssr": "npm run serve:ssr:timewise_ssr",
+    "dev:ssr": "nodemon --watch 'src/**/*.ts' --exec 'npm run serve:ssr'"
   },
   "private": true,
   "dependencies": {
@@ -41,7 +42,6 @@
     "rxjs": "~7.8.0",
     "sequelize": "^6.37.4",
     "sequelize-typescript": "^2.1.6",
-    "ts-node": "^10.9.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
@@ -60,7 +60,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "nodemon": "^3.1.7",
     "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2",
     "typescript": "~5.5.2"
   }
 }
