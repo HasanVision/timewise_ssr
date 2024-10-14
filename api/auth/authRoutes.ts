@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { register } from './register';
+import  register  from './register';
 import  login  from './login';
 import { logout } from './logout';
 import  checkSession  from '../middlewares/checkSession';

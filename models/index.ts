@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { DataTypes } from 'sequelize';
 import{ User }from './User';
+import { VerificationToken } from './pVerificationT';
 
 // Create __filename and __dirname for ES module compatibility
 const __filename = fileURLToPath(import.meta.url);
@@ -22,7 +23,7 @@ const sequelize = new Sequelize({
   username: process.env['DB_USERNAME'],
   password: process.env['DB_PASSWORD'],
   database: process.env['DB_DATABASE'],
-  models: [User],  
+  models: [User, VerificationToken],  
 });
 
 // Use async/await to handle dynamic imports of models

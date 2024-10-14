@@ -10,7 +10,7 @@ import { RouterModule, Router } from '@angular/router';
 import { CardComponent } from '../../../ui/card/card.component';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
-import axios from 'axios';
+
 
 
 @Component({

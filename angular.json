@@ -16,7 +16,7 @@
             "allowedCommonJsDependencies": ["sequelize", 
             "sequelize-typescript", 
             "dotenv","express-session","connect-session-sequelize", 
-            "form-data", "proxy-from-env", "follow-redirects", "bcryptjs", "body-parser", "cors"],
+            "form-data", "proxy-from-env", "follow-redirects", "bcryptjs", "body-parser", "cors", "deepmerge", "js-beautify", "react", "react-dom/server"],
             "outputPath": "dist/timewise_ssr",
             "index": "src/index.html",
             "browser": "src/main.ts",
