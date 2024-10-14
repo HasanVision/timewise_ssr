@@ -6,12 +6,12 @@ import { Resend } from "resend";
 const resend = new Resend(process.env["RESEND_API_KEY"]);
 const domain = process.env["DOMAIN"];
 
-export const sendMagicLinkEmail = async (primaryEmail: string, token: string) => {
+export const sendMagicLinkEmail = async (email: string, token: string) => {
     const magicLink = `${domain}/magic-link?token=${token}`;
   
     await resend.emails.send({
         from: "confirm@oxygen365.net",
-      to: primaryEmail,
+      to: email,
       subject: "Your Magic Login Link",
       html: `<p>Click <a href="${magicLink}"> here </a> to log in to your account!</p>`,
     });
