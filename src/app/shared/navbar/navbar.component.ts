@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common'; // Import isPlatformBrowser
+import { isPlatformBrowser } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../auth/authServices/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -35,10 +35,17 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Only access localStorage if we are in the browser
     if (this.isBrowser) {
-      this.isDarkTheme = localStorage.getItem('theme') === 'dark';
+      // Detect and apply the theme from localStorage or system theme preference
+      this.detectSystemTheme();
+      this.isDarkTheme = localStorage.getItem('theme') === 'dark' || this.isDarkTheme;
       this.applyTheme();
+
+      // Add a listener to detect system theme changes dynamically
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+        this.isDarkTheme = event.matches;
+        this.applyTheme();
+      });
     }
 
     this.authService.isLoggedIn.subscribe((loggedIn) => {
@@ -46,12 +53,9 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  toggleTheme() {
-    if (this.isBrowser) {
-      this.isDarkTheme = !this.isDarkTheme;
-      localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
-      this.applyTheme();
-    }
+  detectSystemTheme() {
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.isDarkTheme = prefersDarkScheme;
   }
 
   applyTheme() {
@@ -61,6 +65,14 @@ export class NavbarComponent implements OnInit {
     } else {
       document.body.classList.add('light-theme');
       document.body.classList.remove('dark-theme');
+    }
+  }
+
+  toggleTheme() {
+    if (this.isBrowser) {
+      this.isDarkTheme = !this.isDarkTheme;
+      localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+      this.applyTheme();
     }
   }
 

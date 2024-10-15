@@ -20,9 +20,8 @@
       </app-button>
     </div>
 
-    <app-button (click)="toggleTheme()">
+    <app-button variant="secondary" (click)="toggleTheme()"   >
       <fa-icon [icon]="isDarkTheme ? faSun : faMoon"></fa-icon> 
-      <!-- {{ isDarkTheme ? 'Light Mode' : 'Dark Mode' }} -->
     </app-button>
 
     <!-- Logout button with an icon -->
