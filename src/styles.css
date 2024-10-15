@@ -5,3 +5,39 @@
     box-sizing: border-box;
     font: 1rem 'Roboto', sans-serif;
 }
+
+/* Light theme */
+body.light-theme {
+  --primary-color: #3f51b5; /* Indigo */
+  --accent-color: #e91e63;  /* Pink */
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark theme */
+body.dark-theme {
+  --primary-color: #607d8b; /* Blue Grey */
+  --accent-color: #ff5722;  /* Deep Orange */
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+/* Apply colors across components */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  background-color: var(--primary-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Additional element styling based on themes */
+a {
+  color: var(--text-color);
+}

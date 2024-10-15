@@ -1,30 +1,43 @@
 <nav class="navbar">
   <div class="navbar__left">
-    <!-- Dashboard button on the left -->
+    <!-- Dashboard button with an icon -->
     <div *ngIf="isLoggedIn">
       <app-button>
-        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard">
+          <fa-icon [icon]="faHome"></fa-icon> Dashboard
+        </a>
       </app-button>
     </div>
   </div>
 
   <div class="navbar__right">
-    <!-- Settings and login/logout buttons on the right -->
+    <!-- Settings button with an icon -->
     <div *ngIf="isLoggedIn">
       <app-button>
-        <a href="/settings">Settings</a>
+        <a href="/settings">
+          <fa-icon [icon]="faCog"></fa-icon> Settings
+        </a>
       </app-button>
     </div>
 
+    <app-button (click)="toggleTheme()">
+      <fa-icon [icon]="isDarkTheme ? faSun : faMoon"></fa-icon> 
+      <!-- {{ isDarkTheme ? 'Light Mode' : 'Dark Mode' }} -->
+    </app-button>
+
+    <!-- Logout button with an icon -->
     <div *ngIf="isLoggedIn">
       <app-button label="Logout" (click)="logout()">
-      
+        <fa-icon [icon]="faSignOutAlt"></fa-icon>
       </app-button>
     </div>
 
+    <!-- Login button with an icon -->
     <div *ngIf="!isLoggedIn">
       <app-button>
-        <a href="/login">Login</a>
+        <a href="/login">
+          <fa-icon [icon]="faUser"></fa-icon> Login
+        </a>
       </app-button>
     </div>
   </div>

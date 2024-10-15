@@ -4,6 +4,7 @@ import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { MagicLinkComponent } from './auth/pages/magic-link/magic-link.component';
+import { SettingsComponent } from './auth/settings/settings.component';
 
 
 export const routes: Routes = [
@@ -11,6 +12,7 @@ export const routes: Routes = [
     { path: 'verify-magic-link', component: MagicLinkComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
+    { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: './login', pathMatch: 'full' },
 ];
 

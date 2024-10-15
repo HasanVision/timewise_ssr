@@ -9,7 +9,7 @@ import { SpinnerComponent } from '../../../ui/spinner/spinner.component';
 import { RouterModule, Router } from '@angular/router';
 import { CardComponent } from '../../../ui/card/card.component';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../authServices/auth.service';
 
 
 
