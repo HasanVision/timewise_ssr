@@ -27,21 +27,23 @@ const register = async (req: Request, res: Response) => {
     });
 
     // Generate the verification token
-    const verificationToken = await generateMagicVerificationToken(primaryEmail, newUser.id);
+  
 
-    // Check if the token and primaryEmail are properly generated
-    if (verificationToken && verificationToken.token && verificationToken.primaryEmail) {
-      console.log(`Verification token for ${primaryEmail}:`, verificationToken);
 
-      // Send the magic link email
-      await sendMagicLinkEmail(verificationToken.primaryEmail, verificationToken.token);
-    } else {
-      console.error('Failed to send Email .');
-    }
 
     // Return success response
-     res.status(201).json({ message: 'User registered successfully', user: newUser });
-     return
+     res.status(201).json({ message: 'User registered successfully'});
+     const verificationToken = await generateMagicVerificationToken(primaryEmail);
+   // After token generation
+if (verificationToken && verificationToken.token && verificationToken.primaryEmail) {
+  console.log(`Verification token for ${verificationToken.primaryEmail}:`, verificationToken.token);  // Log these values
+
+  // Send the magic link email
+  await sendMagicLinkEmail(verificationToken.primaryEmail, verificationToken.token);
+} else {
+  console.error('Failed to generate verification token or primaryEmail.');
+}
+     
 
   } catch (error) {
     console.error('Error during registration:', error);

@@ -24,6 +24,7 @@ const sequelize = new Sequelize({
   password: process.env['DB_PASSWORD'],
   database: process.env['DB_DATABASE'],
   models: [User, VerificationToken],  
+  logging: false,
 });
 
 // Use async/await to handle dynamic imports of models
