@@ -8,18 +8,30 @@
 
 /* Light theme */
 body.light-theme {
-  --primary-color: #3f51b5; /* Indigo */
+  --primary-color: #3f51b5; 
   --accent-color: #e91e63;  /* Pink */
   --background-color: #ffffff;
   --text-color: #000000;
+
+  --card-background-color: #f9f9f9; 
+  --card-border-color: #e0e0e0;
+  --card-text-color: #333;
+  --card-header-color: #000;
+  --card-subtitle-color: #e6e6e6;
 }
 
 /* Dark theme */
 body.dark-theme {
-  --primary-color: #607d8b; /* Blue Grey */
-  --accent-color: #ff5722;  /* Deep Orange */
+  --primary-color: #607d8b; 
+  --accent-color: #ff5722;  
   --background-color: #121212;
   --text-color: #ffffff;
+
+  --card-background-color: #1e1e1e;
+  --card-border-color: #3a3a3a;
+  --card-text-color: #e0e0e0;
+  --card-header-color: #ffffff;
+  --card-subtitle-color: #cccccc;
 }
 
 /* Apply colors across components */
