@@ -3,15 +3,17 @@ import  register  from './register';
 import  login  from './login';
 import { logout } from './logout';
 import  checkSession  from '../middlewares/checkSession';
+import  magicVerifyToken  from './verifyMagicLink';
 
-const router = Router();
+const AuthRoutes = Router();
 
 // Registration route
-router.post('/register', register);
-router.post('/login', login);
-router.post('/logout', logout);
-router.get('/check-session', checkSession);
+AuthRoutes.post('/register', register);
+AuthRoutes.post('/login', login);
+AuthRoutes.post('/logout', logout);
+AuthRoutes.get('/check-session', checkSession);
+AuthRoutes.post('/verify-magic-link', magicVerifyToken);
 
 
 
-export default router;
+export default AuthRoutes;

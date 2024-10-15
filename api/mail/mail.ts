@@ -7,7 +7,7 @@ const resend = new Resend(process.env["RESEND_API_KEY"]);
 const domain = process.env["DOMAIN"];
 
 export const sendMagicLinkEmail = async (primaryEmail: string, token: string) => {
-  const magicLink = `${domain}/magic-link?token=${token}`;
+  const magicLink = `${domain}/verify-magic-link?token=${token}`;
   console.log(`Sending magic link email to ${primaryEmail} with link: ${magicLink}`);
 
   try {
@@ -23,21 +23,21 @@ export const sendMagicLinkEmail = async (primaryEmail: string, token: string) =>
   }
 };
 
-//   export const sendWelcomeEmail = async (email: string, firstName: string) => {
-//     try {
-//       const response = await resend.emails.send({
-//         from: "welcome@oxygen365.net", 
-//         to: email,
-//         subject: 'Welcome to Timewise!',
-//         html: `<p>Hi ${firstName},</p>
-//                <p>Thank you for registering at Timewise! We're excited to have you on board.</p>
-//                <p>Best regards,<br>Timewise Team</p>`,
-//       });
-//       console.log(`Welcome email sent to ${email}: `, response);
-//     } catch (error) {
-//       console.error('Error sending welcome email:', error);
-//     }
-//   };
+  export const sendWelcomeEmail = async (email: string, firstName: string) => {
+    try {
+      const response = await resend.emails.send({
+        from: "welcome@oxygen365.net", 
+        to: email,
+        subject: 'Welcome to Timewise!',
+        html: `<p>Hi ${firstName},</p>
+               <p>Thank you for registering at Timewise! We're excited to have you on board.</p>
+               <p>Best regards,<br>Timewise Team</p>`,
+      });
+      console.log(`Welcome email sent to ${email}: `, response);
+    } catch (error) {
+      console.error('Error sending welcome email:', error);
+    }
+  };
 
 
 

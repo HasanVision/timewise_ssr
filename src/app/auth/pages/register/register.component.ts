@@ -64,43 +64,73 @@ export class RegisterComponent {
     return password === confirmPassword ? null : { mismatch: true };
   }
 
-  // Toggle visibility for password field
+
+
+  // Submit form logic
+  async onSubmit() {
+    if (this.form.valid) {
+      this.isLoading = true;
+      const { firstname, lastname, primaryEmail, password } = this.form.value;
+
+      try {
+        console.log('Registering user:', firstname, lastname, primaryEmail, password);
+        const response = await axios.post('http://localhost:4000/api/register', {
+          firstName: firstname,
+          lastName: lastname,
+          primaryEmail,
+          password,
+        });
+        // Set success message
+        this.successMessage =
+          'Email verification link has been sent to your email address. Please verify your email to login.';
+        this.registerError = null; // Clear any previous errors
+        
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.error('Registration failed:', error.response?.data);
+          this.registerError = error.response?.data?.message || 'Registration failed. Please try again.';
+        } else {
+          this.registerError = 'An unexpected error occurred during registration.';
+        }
+      } finally {
+        this.isLoading = false; 
+      }
+    }
+  }
+
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  // Toggle visibility for confirm password field
   toggleConfirmPasswordVisibility() {
     this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
   }
+  // async onSubmit() {
+  //   if (this.form.invalid) {
+  //     return;
+  //   }
 
-  // Submit form logic
-  async onSubmit() {
-    if (this.form.invalid) {
-      return;
-    }
+  //   this.isLoading = true;
+  //   this.registerError = null;
 
-    this.isLoading = true;
-    this.registerError = null;
+  //   const { firstname, lastname, primaryEmail, password } = this.form.value;
 
-    const { firstname, lastname, primaryEmail, password } = this.form.value;
+  // try {
+  //   const response = await axios.post('http://localhost:4000/api/register', {
+  //     firstName: firstname,
+  //     lastName: lastname,
+  //     primaryEmail,
+  //     password,
+  //   });
 
-  try {
-    const response = await axios.post('http://localhost:4000/api/register', {
-      firstName: firstname,
-      lastName: lastname,
-      primaryEmail,
-      password,
-    });
+  //   this.successMessage = 'Registration successful!';
+  //   this.form.reset();
+  // } catch (error: any) {
+  //   this.registerError = error.response?.data?.message || 'Registration failed. Please try again.';
+  // } finally{
+  //   this.isLoading = false;
+  // }
 
-    this.successMessage = 'Registration successful!';
-    this.form.reset();
-  } catch (error: any) {
-    this.registerError = error.response?.data?.message || 'Registration failed. Please try again.';
-  } finally{
-    this.isLoading = false;
-  }
-
-  }
+  // }
   
 }
