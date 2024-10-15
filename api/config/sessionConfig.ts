@@ -15,7 +15,7 @@ sessionStore.sync();
 
 // Export session configuration
 export const sessionConfig = session({
-  secret: process.env['SESSION_SECRET'] || 'secret',
+  secret: process.env['SESSION_SECRET']!,
   store: sessionStore,
   resave: false,
   saveUninitialized: false,
