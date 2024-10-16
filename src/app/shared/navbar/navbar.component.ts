@@ -29,9 +29,9 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-    @Inject(PLATFORM_ID) private platformId: Object // Inject the platform
+    @Inject(PLATFORM_ID) private platformId: Object 
   ) {
-    this.isBrowser = isPlatformBrowser(this.platformId); // Check if we are in the browser
+    this.isBrowser = isPlatformBrowser(this.platformId); 
   }
 
   ngOnInit() {

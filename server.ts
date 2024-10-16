@@ -40,6 +40,11 @@ export function app(): express.Express {
   
   server.use('/api', authRoutes);
 
+  // server.use('/api', (req, res, next) => {
+  //   console.log('API Route hit', req.url);
+  //   next();
+  // });
+
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
@@ -77,6 +82,8 @@ async function run(): Promise<void> {
     await db.sequelize.authenticate();
     // await db.sequelize.sync();  // This ensures that the models are synced with the database
     console.log('Database connected successfully.');
+    await db.sequelize.sync({ alter: true }); 
+    console.log('All models were synchronized successfully.');
 
     // Start up the Node server
     const server = app();

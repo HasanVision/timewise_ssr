@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { DataTypes } from 'sequelize';
 import{ User }from './User';
 import { VerificationToken } from './pVerificationT';
+import { IPInfo } from './ipInfo';
 
 // Create __filename and __dirname for ES module compatibility
 const __filename = fileURLToPath(import.meta.url);
@@ -23,7 +24,7 @@ const sequelize = new Sequelize({
   username: process.env['DB_USERNAME'],
   password: process.env['DB_PASSWORD'],
   database: process.env['DB_DATABASE'],
-  models: [User, VerificationToken],  
+  models: [User, VerificationToken, IPInfo],  
   logging: false,
 });
 

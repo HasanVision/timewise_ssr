@@ -1,14 +1,15 @@
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('ip_infos', {
       id: {
-        type: Sequelize.UUID,  // Correct for Sequelize + MySQL
-        primaryKey: true,
+        type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: Sequelize.UUIDV4 // Use Sequelize's UUID generation function
+        primaryKey: true,  // Marking 'id' as primary key
+        autoIncrement: true, // Adding auto-increment for id
       },
       ip: {
         type: Sequelize.STRING,
@@ -18,16 +19,17 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'users', // Assumes you have a 'users' table
+          model: 'users',  // Name of the Users table
           key: 'id'
         },
+        onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       network: {
         type: Sequelize.STRING,
         allowNull: true
       },
-      ipVersion: {  // Changed from 'version' to 'ipVersion'
+      ipVersion: {
         type: Sequelize.STRING,
         allowNull: true
       },
@@ -55,10 +57,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      countryCode: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
       latitude: {
         type: Sequelize.FLOAT,
         allowNull: false
@@ -69,27 +67,26 @@ module.exports = {
       },
       inEu: {
         type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
+        allowNull: true
       },
       timezone: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
       },
       createdAt: {
-        type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') // MySQL-friendly timestamp
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
-        type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP') // MySQL-friendly
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       }
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('ip_infos');
   }
 };

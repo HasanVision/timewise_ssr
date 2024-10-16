@@ -1,12 +1,13 @@
-import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
-import { User } from './User';  // Import the User model
+import { Table, Column, Model, DataType, ForeignKey } from 'sequelize-typescript';
+import { User } from './User';
 
 @Table({
   tableName: 'ip_infos',
-  timestamps: true,  // Enable Sequelize's `createdAt` and `updatedAt`
+  timestamps: true,
 })
 export class IPInfo extends Model {
-  // You don't need to declare `id` explicitly as Sequelize will handle it for you.
+  declare id: number;
+
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -15,13 +16,10 @@ export class IPInfo extends Model {
 
   @ForeignKey(() => User)
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
     allowNull: false,
   })
-  userId!: string;
-
-  @BelongsTo(() => User)
-  user!: User;
+  userId!: number;
 
   @Column({
     type: DataType.STRING,
@@ -33,7 +31,7 @@ export class IPInfo extends Model {
     type: DataType.STRING,
     allowNull: true,
   })
-  ipVersion?: string;  // Optional version field
+  ipVersion?: string;
 
   @Column({
     type: DataType.STRING,
@@ -72,12 +70,6 @@ export class IPInfo extends Model {
   countryName!: string;
 
   @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  countryCode?: string;
-
-  @Column({
     type: DataType.FLOAT,
     allowNull: false,
   })
@@ -91,18 +83,13 @@ export class IPInfo extends Model {
 
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
+    allowNull: true,
   })
-  inEu!: boolean;
+  inEu?: boolean;
 
   @Column({
     type: DataType.STRING,
-    allowNull: true,
+    allowNull: false,
   })
-  timezone?: string;
-
-  // No need to define `createdAt` or `updatedAt` - they are handled by Sequelize automatically.
+  timezone!: string;
 }
-
-export default IPInfo;
