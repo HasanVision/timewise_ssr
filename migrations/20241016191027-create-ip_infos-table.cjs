@@ -1,88 +1,92 @@
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('ip_infos', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true,  // Marking 'id' as primary key
-        autoIncrement: true, // Adding auto-increment for id
+        autoIncrement: true,
+        primaryKey: true,
       },
       ip: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'users',  // Name of the Users table
-          key: 'id'
+          model: 'users',  // References the users table
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+      },
+      requestCount: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
       },
       network: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       ipVersion: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       city: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       cityCode: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       region: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       regionCode: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       country: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       countryName: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       latitude: {
         type: Sequelize.FLOAT,
-        allowNull: false
+        allowNull: false,
       },
       longitude: {
         type: Sequelize.FLOAT,
-        allowNull: false
+        allowNull: false,
       },
       inEu: {
         type: Sequelize.BOOLEAN,
-        allowNull: true
+        allowNull: true,
       },
       timezone: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
-      }
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
+      },
     });
   },
 

@@ -8,6 +8,7 @@ import { User } from './User';
 export class IPInfo extends Model {
   declare id: number;
 
+
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -20,6 +21,13 @@ export class IPInfo extends Model {
     allowNull: false,
   })
   userId!: number;
+
+  @Column({
+    type: DataType.INTEGER,
+    defaultValue: 1, 
+    allowNull: false,
+  })
+   requestCount!: number;
 
   @Column({
     type: DataType.STRING,

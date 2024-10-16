@@ -15,7 +15,7 @@ AuthRoutes.post('/login', login);
 AuthRoutes.post('/logout', logout);
 AuthRoutes.get('/check-session',  checkSession);
 AuthRoutes.post('/verify-magic-link', magicVerifyToken);
-AuthRoutes.get('/current-user', fetchAndStoreIPInfo, currentUser );
+AuthRoutes.get('/current-user', currentUser );
 
 
 

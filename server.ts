@@ -82,7 +82,8 @@ async function run(): Promise<void> {
     await db.sequelize.authenticate();
     // await db.sequelize.sync();  // This ensures that the models are synced with the database
     console.log('Database connected successfully.');
-    await db.sequelize.sync({ alter: true }); 
+    await db.sequelize.sync({ alter: true })
+
     console.log('All models were synchronized successfully.');
 
     // Start up the Node server
