@@ -15,17 +15,25 @@ button {
 
 /* Variants */
 button.primary {
-  background: #007bff;
+  background: rgb(70, 92, 0);
   color: white;
 }
 
 button.secondary {
-  background-color: #354c60;
+  background-color:rgb(57, 66, 21);
   color: white;
 }
 
 button.danger {
   background-color: #f30018;
+  color: #fff;
+}
+button.link{
+  background: none;;
+  color: rgb(197, 197, 197);
+}
+button.link:hover{
+  background: rgb(19, 24, 1);
   color: #fff;
 }
 button.ghost {
