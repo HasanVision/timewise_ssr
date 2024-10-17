@@ -5,16 +5,17 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
 import db from './models/index.js';
-import { sessionConfig } from './api/config/sessionConfig.js';
-import dotenv from 'dotenv';
+import { sessionConfig } from './src/api/middlewares/config/sessionConfig.js';
 import bodyParser from 'body-parser';
-import authRoutes from './api/auth/authRoutes.js';
+import authRoutes from './src/api/auth/authRoutes.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
-// The Express app is exported so that it can be used by serverless Functions.
+
 export function app(): express.Express {
+  
   const server = express();
   server.use(bodyParser.json());
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
@@ -31,12 +32,12 @@ export function app(): express.Express {
   
 
   server.use(cors({
-    origin: 'http://localhost:4200',  // Your frontend URL
+    origin: 'http://localhost:4200',  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
-    credentials: true  // Add this if you're dealing with cookies or session-based authentication
+    credentials: true  
   }));
-  server.options('*', cors());  // Responds to preflight requests
+  server.options('*', cors());  
   
   server.use('/api', authRoutes);
 
@@ -53,7 +54,7 @@ export function app(): express.Express {
     index: 'index.html',
   }));
 
-  // All regular routes use the Angular engine
+
   server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
@@ -86,7 +87,7 @@ async function run(): Promise<void> {
 
     console.log('All models were synchronized successfully.');
 
-    // Start up the Node server
+ 
     const server = app();
     server.listen(port, () => {
       console.log(`Node Express server listening on http://localhost:${port}`);

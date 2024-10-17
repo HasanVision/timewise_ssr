@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { User } from '../../models/User.js';
+import { User } from '../../../models/User.js';
 import { generateResetPasswordToken } from '../data/generateResetPasswordToken.js';
 import { sendResetPasswordEmail } from '../mail/mail.js';
 
@@ -19,11 +19,11 @@ const forgotPasswordHandler: RequestHandler = async (req, res) => {
         return;
       }
   
-      // Generate reset token
+   
       const token = await generateResetPasswordToken(email);
-      console.log('Reset token generated:', token);
+      // console.log('Reset token generated:', token);
   
-      // Send the reset password email
+ 
       await sendResetPasswordEmail(email, token);
       console.log('Reset password email sent to:', email);
   

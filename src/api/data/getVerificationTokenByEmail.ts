@@ -1,4 +1,4 @@
-import { VerificationToken } from '../../models/pVerificationT'
+import { VerificationToken } from '../../../models/pVerificationT'
 
 export const getMagicVerificationTokenByEmail = async (
     primaryEmail: string

@@ -8,7 +8,7 @@ const domain = process.env["DOMAIN"];
 
 export const sendMagicLinkEmail = async (primaryEmail: string, token: string) => {
   const magicLink = `${domain}/verify-magic-link?token=${token}`;
-  console.log(`Sending magic link email to ${primaryEmail} with link: ${magicLink}`);
+  // console.log(`Sending magic link email to ${primaryEmail} with link: ${magicLink}`);
 
   try {
     await resend.emails.send({
@@ -17,7 +17,7 @@ export const sendMagicLinkEmail = async (primaryEmail: string, token: string) =>
       subject: "Your Magic Login Link",
       html: `<p>Click <a href="${magicLink}">here</a> to log in to your account!</p>`,
     });
-    console.log(`Magic link email sent to ${primaryEmail}`);
+    // console.log(`Magic link email sent to ${primaryEmail}`);
   } catch (error) {
     console.error(`Failed to send magic link email to ${primaryEmail}:`, error);
   }
@@ -33,7 +33,7 @@ export const sendMagicLinkEmail = async (primaryEmail: string, token: string) =>
                <p>Thank you for registering at Timewise! We're excited to have you on board.</p>
                <p>Best regards,<br>Timewise Team</p>`,
       });
-      console.log(`Welcome email sent to ${email}: `, response);
+      // console.log(`Welcome email sent to ${email}: `, response);
     } catch (error) {
       console.error('Error sending welcome email:', error);
     }
@@ -59,7 +59,7 @@ export const sendResetPasswordEmail = async (
 export const sendPasswordResetSuccessEmail = async (email: string) => {
   try {
     await resend.emails.send({
-      from: 'reset-password@oxygen365.net', // Adjust this to your verified sender email
+      from: 'reset-password@oxygen365.net', 
       to: email,
       subject: 'Your Password Has Been Reset Successfully',
       html: `<p>Hello,</p>

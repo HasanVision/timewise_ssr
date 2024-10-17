@@ -10,3 +10,5 @@ declare module './models/index' {
   const db: DB;
   export default db;
 }
+
+// make sure to import the module in the file where you want to use it NEED TO LEARN MORE ABOUT THIS

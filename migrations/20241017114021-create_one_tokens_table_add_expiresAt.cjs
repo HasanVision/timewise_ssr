@@ -22,14 +22,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'users', // Assumes you have a `users` table
+          model: 'users', 
           key: 'id',
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
       expiresAt: {
-        type: Sequelize.DATE, // New expiresAt field
+        type: Sequelize.DATE, 
         allowNull: false,
       },
       createdAt: {
@@ -44,7 +44,7 @@ module.exports = {
       },
     });
 
-    // Add indexes
+   
     await queryInterface.addIndex('tokens', ['token'], {
       name: 'token_idx',
       unique: true,

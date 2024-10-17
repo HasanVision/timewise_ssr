@@ -1,6 +1,6 @@
 import session from 'express-session';
 import SequelizeStoreInit from 'connect-session-sequelize';
-import  db  from '../../models/index';  // Ensure the path to the Sequelize instance is correct
+import  db  from '../../../../models/index';  // Ensure the path to the Sequelize instance is correct
 
 
 // Initialize Sequelize session store

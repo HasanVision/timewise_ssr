@@ -28,7 +28,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "./models/types.d.ts",
+    "models/types.d.ts",
     "types/**/*.d.ts"
   ],
   "angularCompilerOptions": {

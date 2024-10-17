@@ -12,7 +12,7 @@ import newPasswordHandler from './newPasswordHandler';
 
 const AuthRoutes = Router();
 
-// Registration route
+
 AuthRoutes.post('/register', register);
 AuthRoutes.post('/login', login);
 AuthRoutes.post('/logout', logout);
