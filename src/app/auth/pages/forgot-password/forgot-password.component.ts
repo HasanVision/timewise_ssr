@@ -32,7 +32,7 @@ export class ForgotPasswordComponent {
       const { email } = this.form.value;
 
       try {
-        const Response = await axios.post('http://localhost:4000/api/forgot-password', { email });
+        const response = await axios.post('http://localhost:4000/api/forgot-password', { email });
         this.successMessage = "Password reset link sent to your email";
         this.errorMessage = '';
 

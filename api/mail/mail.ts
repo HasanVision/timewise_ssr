@@ -46,7 +46,7 @@ export const sendResetPasswordEmail = async (
     token: string,
 ) => {
     const resetLink = `${domain}/new-password?token=${token}`;
-
+    console.log(`Sending password reset email to ${email} with link: ${resetLink}`);
     await resend.emails.send({
         from: "reset-password@oxygen365.net",
         to: email,

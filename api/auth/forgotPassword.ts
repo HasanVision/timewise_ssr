@@ -1,11 +1,10 @@
 import { RequestHandler } from 'express';
-import { Token } from '../../models/tokens.js';
 import { User } from '../../models/User.js';
 import { generateResetPasswordToken } from '../data/generateResetPasswordToken.js';
 import { sendResetPasswordEmail } from '../mail/mail.js';
 
 const forgotPasswordHandler: RequestHandler = async (req, res) => {
-    // console.log('Forgot password request received:', req.body);
+    console.log('Forgot password request received:', req.body);
     const { email } = req.body;
   
     if (!email) {
@@ -21,11 +20,12 @@ const forgotPasswordHandler: RequestHandler = async (req, res) => {
       }
   
       // Generate reset token
-      const resetToken = await generateResetPasswordToken(email);
-      console.log('Reset token generated:', resetToken);
+      const token = await generateResetPasswordToken(email);
+      console.log('Reset token generated:', token);
   
       // Send the reset password email
-      await sendResetPasswordEmail(email, resetToken.token);
+      await sendResetPasswordEmail(email, token);
+      console.log('Reset password email sent to:', email);
   
       res.status(200).json({ message: 'Reset password link sent to your email.' });
     } catch (error) {
