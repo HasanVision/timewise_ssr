@@ -7,8 +7,8 @@ import  magicVerifyToken  from './verifyMagicLink';
 import fetchAndStoreIPInfo from '../middlewares/ipInfo';
 import  currentUser  from './currentUser';
 import forgotPasswordHandler from './forgotPassword';
-// import  verifyResetPasswordToken  from './verifyResetPasswordToken';
-// import newPasswordHandler from './newPasswordHandler';
+import verifyResetPasswordTokenHandler from './verifyResetPasswordToken';
+import newPasswordHandler from './newPasswordHandler';
 
 const AuthRoutes = Router();
 
@@ -20,8 +20,8 @@ AuthRoutes.get('/check-session',  checkSession);
 AuthRoutes.post('/verify-magic-link', magicVerifyToken);
 AuthRoutes.get('/current-user', currentUser );
 AuthRoutes.post('/forgot-password', forgotPasswordHandler);
-// AuthRoutes.post('/verify-reset-password-token', verifyResetPasswordToken);
-// AuthRoutes.post('/new-password', newPasswordHandler);
+AuthRoutes.post('/verify-reset-password-token', verifyResetPasswordTokenHandler);
+AuthRoutes.post('/new-password', newPasswordHandler);
 
 
 
