@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { MagicLinkComponent } from './auth/pages/magic-link/magic-link.component';
 import { SettingsComponent } from './auth/settings/settings.component';
+import { ForgotPasswordComponent} from './auth/pages/forgot-password/forgot-password.component';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+    { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: '', redirectTo: './login', pathMatch: 'full' },
 ];
 

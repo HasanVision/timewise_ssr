@@ -6,6 +6,7 @@ import  checkSession  from '../middlewares/checkSession';
 import  magicVerifyToken  from './verifyMagicLink';
 import fetchAndStoreIPInfo from '../middlewares/ipInfo';
 import  currentUser  from './currentUser';
+import forgotPasswordHandler from './forgotPassword';
 
 const AuthRoutes = Router();
 
@@ -16,6 +17,8 @@ AuthRoutes.post('/logout', logout);
 AuthRoutes.get('/check-session',  checkSession);
 AuthRoutes.post('/verify-magic-link', magicVerifyToken);
 AuthRoutes.get('/current-user', currentUser );
+AuthRoutes.post('/forgot-password', forgotPasswordHandler);
+
 
 
 

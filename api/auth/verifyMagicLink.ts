@@ -3,6 +3,14 @@ import { VerificationToken } from '../../models/pVerificationT.js';
 import { User } from '../../models/User.js';  // Import the User model
 import { sendWelcomeEmail } from '../mail/mail.js';
 
+
+declare module 'express-session' {
+  interface SessionData {
+    userId: number;
+  }
+}
+// TODO:  SHOULD FIX THIS TYPE GLOBALLY
+
 const magicVerifyToken: RequestHandler = async (req, res) => {
   let token = req.body.token;
 
@@ -13,18 +21,18 @@ const magicVerifyToken: RequestHandler = async (req, res) => {
 
   // Normalize and log the token before querying
   token = token.trim().toLowerCase();
-  console.log('Normalized token for query:', token);
+  // console.log('Normalized token for query:', token);
 
   try {
-    console.log('Looking for token in DB:', token);
+    // console.log('Looking for token in DB:', token);
     const verificationToken = await VerificationToken.findOne({
       where: { token },
     });
     
-    console.log('Result from DB query:', verificationToken);
+    // console.log('Result from DB query:', verificationToken);
 
     if (!verificationToken) {
-      console.log('Token not found in the database.');
+      // console.log('Token not found in the database.');
       res.status(400).json({ message: 'Invalid or expired token' });
       return;
     }

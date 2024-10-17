@@ -41,39 +41,39 @@ export const sendMagicLinkEmail = async (primaryEmail: string, token: string) =>
 
 
 
-// export const sendResetPasswordEmail = async (
-//     email: string,
-//     token: string,
-// ) => {
-//     const resetLink = `${domain}/new-password?token=${token}`;
+export const sendResetPasswordEmail = async (
+    email: string,
+    token: string,
+) => {
+    const resetLink = `${domain}/new-password?token=${token}`;
 
-//     await resend.emails.send({
-//         from: "reset-password@oxygen365.net",
-//         to: email,
-//         subject: "Reset your password",
-//         html: `<p>Click <a href="${resetLink}"> here </a> to reset your password!</p>`,
+    await resend.emails.send({
+        from: "reset-password@oxygen365.net",
+        to: email,
+        subject: "Reset your password",
+        html: `<p>Click <a href="${resetLink}"> here </a> to reset your password!</p>`,
 
-//     })
-// }
+    })
+}
 
-// export const sendPasswordResetSuccessEmail = async (email: string) => {
-//   try {
-//     await resend.emails.send({
-//       from: 'reset-password@oxygen365.net', // Adjust this to your verified sender email
-//       to: email,
-//       subject: 'Your Password Has Been Reset Successfully',
-//       html: `<p>Hello,</p>
-//              <p>This is to inform you that your password has been successfully reset.</p>
-//              <p>If you did not initiate this request, please contact support immediately.</p>
-//              <p>Thank you,</p>
-//              <p>Your Company Name</p>`
-//     });
+export const sendPasswordResetSuccessEmail = async (email: string) => {
+  try {
+    await resend.emails.send({
+      from: 'reset-password@oxygen365.net', // Adjust this to your verified sender email
+      to: email,
+      subject: 'Your Password Has Been Reset Successfully',
+      html: `<p>Hello,</p>
+             <p>This is to inform you that your password has been successfully reset.</p>
+             <p>If you did not initiate this request, please contact support immediately.</p>
+             <p>Thank you,</p>
+             <p>Your Company Name</p>`
+    });
 
-//     // console.log(`Password reset success email sent to ${email}`);
-//   } catch (error) {
-//     console.error('Error sending password reset success email:', error);
-//   }
-// };
+    // console.log(`Password reset success email sent to ${email}`);
+  } catch (error) {
+    console.error('Error sending password reset success email:', error);
+  }
+};
 // export const sendSecondaryEmailVerification= async (email: string, token: string) => {
 //   const verificationLink = `${domain}/verify-secondary-email?token=${token}`;
 

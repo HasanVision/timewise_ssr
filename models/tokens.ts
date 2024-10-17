@@ -14,6 +14,12 @@ export class Token extends Model {
   token!: string;
 
   @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  email!: string;
+
+  @Column({
     type: DataType.ENUM('reset_password_verification', 'email_verification', 'secondary_email_verification'),
     allowNull: false,
   })
@@ -22,7 +28,7 @@ export class Token extends Model {
   @ForeignKey(() => User)
   @Column({
     type: DataType.INTEGER,
-    allowNull: false,
+    allowNull: true,
   })
   userId!: number;
 
