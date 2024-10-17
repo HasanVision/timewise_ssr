@@ -7,10 +7,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "watch:backend": "tsc -w",
     "test": "ng test",
     "serve:ssr:timewise_ssr": "node dist/timewise_ssr/server/server.mjs",
-    "serve:ssr": "npm run serve:ssr:timewise_ssr",
-    "dev:ssr": "nodemon --watch 'src/**/*.ts' --exec 'npm run serve:ssr'"
+    "serve:ssr": "npm run serve:ssr:timewise_ssr"
   },
   "private": true,
   "dependencies": {

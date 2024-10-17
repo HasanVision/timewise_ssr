@@ -105,32 +105,5 @@ export class RegisterComponent {
   toggleConfirmPasswordVisibility() {
     this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
   }
-  // async onSubmit() {
-  //   if (this.form.invalid) {
-  //     return;
-  //   }
-
-  //   this.isLoading = true;
-  //   this.registerError = null;
-
-  //   const { firstname, lastname, primaryEmail, password } = this.form.value;
-
-  // try {
-  //   const response = await axios.post('http://localhost:4000/api/register', {
-  //     firstName: firstname,
-  //     lastName: lastname,
-  //     primaryEmail,
-  //     password,
-  //   });
-
-  //   this.successMessage = 'Registration successful!';
-  //   this.form.reset();
-  // } catch (error: any) {
-  //   this.registerError = error.response?.data?.message || 'Registration failed. Please try again.';
-  // } finally{
-  //   this.isLoading = false;
-  // }
-
-  // }
   
 }
