@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import { VerificationToken } from '../../models/pVerificationT.js';
 import { User } from '../../models/User.js';  // Import the User model
-// import { sendWelcomeEmail } from '../mail/mail.js';
+import { sendWelcomeEmail } from '../mail/mail.js';
 
 const magicVerifyToken: RequestHandler = async (req, res) => {
   let token = req.body.token;
@@ -54,7 +54,7 @@ const magicVerifyToken: RequestHandler = async (req, res) => {
     req.session.userId = user.id;
 
     // Optionally send a welcome email
-    // await sendWelcomeEmail(user.primaryEmail, user.firstName);
+    await sendWelcomeEmail(user.primaryEmail, user.firstName);
 
     // Now delete the token, but don't check for the token after this point
     await VerificationToken.destroy({ where: { token } });
