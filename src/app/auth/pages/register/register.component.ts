@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from '../../../ui/button/button.component';
+import { ButtonComponent } from '@app/ui/button/button.component';
 import { InputTextComponent } from '../../../ui/input-text/input-text.component';
 import { ErrorComponent } from "../../../ui/error/error.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -107,3 +107,7 @@ export class RegisterComponent {
   }
   
 }
+
+
+
+// TODO: modify the import alias 
