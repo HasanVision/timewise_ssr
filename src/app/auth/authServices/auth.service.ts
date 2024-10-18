@@ -6,11 +6,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  // BehaviorSubject to hold login state (true or false)
+
   private loggedIn = new BehaviorSubject<boolean>(false);
   
   constructor() {
-    // Call this to check if the session is active when the app starts
+
     this.checkSession();
   }
 

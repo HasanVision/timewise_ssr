@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import axios from 'axios';
+import { AuthService } from '../authServices/auth.service';
 
 @Injectable({
   providedIn: 'root',
