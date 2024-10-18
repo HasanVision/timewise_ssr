@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font: 1rem 'Roboto', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* Light theme applied via class */
@@ -12,6 +13,7 @@ body.light-theme {
   --accent-color: #e91e63;  /* Pink */
   --background-color: #ffffff;
   --text-color: #000000;
+
 
   --card-background-color: #f9f9f9; 
   --card-border-color: #e0e0e0;
@@ -27,6 +29,7 @@ body.light-theme {
     --accent-color: #e91e63;  /* Pink */
     --background-color: #ffffff;
     --text-color: #000000;
+  
 
     --card-background-color: #f9f9f9; 
     --card-border-color: #e0e0e0;
@@ -42,7 +45,9 @@ body.dark-theme {
   --primary-color: #607d8b; /* Blue Grey */
   --accent-color: #ff5722;  /* Deep Orange */
   --background-color: #000000;
-  --text-color: #ffffff;
+  --text-color: #b6b6b6;
+  --border: 1px solid #3a3a3a;
+  --border-radius: 6px;
 
   --card-background-color: #1e1e1e;
   --card-border-color: #3a3a3a;
@@ -57,8 +62,8 @@ body.dark-theme {
     --primary-color: #607d8b; /* Blue Grey */
     --accent-color: #ff5722;  /* Deep Orange */
     --background-color: #000000;
-    --text-color: #ffffff;
-
+    --text-color: #b6b6b6;
+    --border: 1px solid #3a3a3a;
     --card-background-color: #1e1e1e;
     --card-border-color: #3a3a3a;
     --card-text-color: #e0e0e0;
@@ -74,5 +79,6 @@ body {
 }
 
 a {
+  text-decoration: none;
   color: var(--text-color);
 }

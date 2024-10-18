@@ -7,7 +7,6 @@ export class ThemeService {
   private isDarkMode = false;
 
   constructor() {
-    // Load the theme from localStorage if it exists
     const storedTheme = localStorage.getItem('theme');
     this.isDarkMode = storedTheme === 'dark';
     this.updateTheme();

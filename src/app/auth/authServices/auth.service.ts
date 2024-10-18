@@ -49,3 +49,5 @@ export class AuthService {
     }
   }
 }
+
+// TODO: CHECK IF THE SESSION CALLED TWICE, LOGIN IN PAGE FLASHES
