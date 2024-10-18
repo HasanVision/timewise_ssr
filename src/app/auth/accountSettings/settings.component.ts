@@ -14,6 +14,8 @@ import { CurrentUser } from '../authServices/getCurrentUser';
 import axios from 'axios';
 import { SideBarComponent } from './side-bar/side-bar.component';
 
+import { UpdateNameComponent } from './update-name/update-name.component';
+
 @Component({
   selector: 'app-settings',
   standalone: true,
@@ -25,7 +27,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     InputTextComponent,
     LabelComponent,
     TooltipComponent,
-    SideBarComponent
+    SideBarComponent,
+    UpdateNameComponent
   ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
@@ -67,6 +70,6 @@ async ngOnInit() {
 }
 
   onSubmit() {
-    // later
+    
   }
 }

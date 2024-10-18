@@ -5,38 +5,21 @@
   <div class="settings-main">
     <app-card title="Settings" subtitle="Modify your settings here">
       <div class="settings-container">
+        <app-update-name></app-update-name>
           <form [formGroup]="form" (ngSubmit)="onSubmit()" >
             <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
             <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-        
-            <app-label text="First name" for="firstname"></app-label>
-            <app-input-text id="firstname" formControlName="firstname" />
-        
-            <app-label text="Last name" for="lastname"></app-label>
-            <app-input-text id="lastname" formControlName="lastname" />
         
             <app-label text="Primary Email address" for="primaryEmail"></app-label>
             <app-tooltip text="We will use this email to contact you">
               <span class="tooltip-icon">?</span>
             </app-tooltip>
             <app-input-text id="email" formControlName="primaryEmail"  />
-           
-            <app-label text="Current Password" for="password" ></app-label>
-            <!-- <app-input-text id="Cpassword" formControlName="password" type="password" placeholder="******" />
-      
-            <app-label text="New Password" for="password"></app-label>
-            <app-input-text id="Npassword1" formControlName="password" type="password" placeholder="******" />
-      
-            <app-label text="Confirm New Password" for="password"></app-label>
-            <app-input-text id="Npassword2" formControlName="password" type="password" placeholder="******" /> -->
         
             <app-button type="submit" [disabled]="form.invalid || isLoading">Save Settings</app-button>
             <div *ngIf="isLoading">Saving...</div>
-            <!-- <app-update-password></app-update-password> -->
           </form>
-          <!-- <app-update-secondary-email></app-update-secondary-email> -->
         </div>
-        
       </app-card>
   </div>
   

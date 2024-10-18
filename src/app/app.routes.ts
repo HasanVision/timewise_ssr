@@ -10,6 +10,7 @@ import { ResetPasswordComponent } from './auth/pages/reset-password/reset-passwo
 import { NotificationsComponent } from './auth/accountSettings/notifications/notifications.component';
 import { SecurityComponent } from './auth/accountSettings/security/security.component';
 import { ProfileSettingsComponent } from './auth/accountSettings/profile-settings/profile-settings.component';
+import { UpdateNameComponent } from './auth/accountSettings/update-name/update-name.component';
 
 
 export const routes: Routes = [
@@ -25,9 +26,10 @@ export const routes: Routes = [
     { path: 'settings/notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
     { path: 'settings/security', component: SecurityComponent, canActivate: [AuthGuard] },
     { path: 'settings/profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuard] },
+    { path: 'settings/update-name', component: UpdateNameComponent, canActivate: [AuthGuard] },
 
 
     { path: '', redirectTo: './login', pathMatch: 'full' },
-    { path: '**', redirectTo: './login'}
+    // { path: '**', redirectTo: './login'}
 ];
 

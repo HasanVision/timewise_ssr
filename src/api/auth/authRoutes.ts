@@ -10,6 +10,9 @@ import forgotPasswordHandler from './forgotPassword';
 import verifyResetPasswordTokenHandler from './verifyResetPasswordToken';
 import newPasswordHandler from './newPasswordHandler';
 
+
+import SettingsRoutes from './accountSettings/settingsRoutes';
+
 const AuthRoutes = Router();
 
 
@@ -24,6 +27,7 @@ AuthRoutes.post('/verify-reset-password-token', verifyResetPasswordTokenHandler)
 AuthRoutes.post('/new-password', newPasswordHandler);
 
 
+AuthRoutes.use('/settings', SettingsRoutes);
 
 
 export default AuthRoutes;
