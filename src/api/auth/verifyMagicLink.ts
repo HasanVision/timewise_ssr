@@ -61,7 +61,7 @@ const magicVerifyToken: RequestHandler = async (req, res) => {
 
     req.session.userId = user.id;
 
-    await sendWelcomeEmail(user.primaryEmail, user.firstName);
+    // await sendWelcomeEmail(user.primaryEmail, user.firstName);
 
   
     await VerificationToken.destroy({ where: { token } });
@@ -78,3 +78,4 @@ const magicVerifyToken: RequestHandler = async (req, res) => {
 export default magicVerifyToken;
 
 // TODO: put back the welcome email when deploying to production
+// BUG: WELCOME EMAIL IS SENDING TWICE

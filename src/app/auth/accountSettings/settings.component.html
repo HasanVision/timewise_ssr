@@ -5,24 +5,7 @@
   
   <div class="settings-main">
     <app-update-name></app-update-name>
-    <app-card title="Settings" subtitle="Modify your settings here">
-      <div class="settings-container">
-        
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" >
-            <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
-            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-        
-            <app-label text="Primary Email address" for="primaryEmail"></app-label>
-            <app-tooltip text="We will use this email to contact you">
-              <span class="tooltip-icon">?</span>
-            </app-tooltip>
-            <app-input-text id="email" formControlName="primaryEmail"  />
-        
-            <app-button type="submit" [disabled]="form.invalid || isLoading">Save Settings</app-button>
-            <div *ngIf="isLoading">Saving...</div>
-          </form>
-        </div>
-      </app-card>
+    <app-update-primary-email></app-update-primary-email>
   </div>
   
 </div>

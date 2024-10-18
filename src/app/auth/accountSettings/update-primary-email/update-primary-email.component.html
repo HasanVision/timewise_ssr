@@ -1,0 +1,14 @@
+
+
+<app-card>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+            <app-label text="Primary Email address" for="primaryEmail"></app-label>
+            <app-input-text id="email" formControlName="primaryEmail"  />
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+            <app-button type="submit" [disabled]="form.invalid || isLoading">Save Settings</app-button>
+            <div *ngIf="isLoading">Saving...</div>
+          </form>
+
+</app-card>
