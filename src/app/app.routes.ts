@@ -20,10 +20,14 @@ export const routes: Routes = [
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'new-password', component: ResetPasswordComponent},
-    { path: '', redirectTo: './login', pathMatch: 'full' },
+   
 
     { path: 'settings/notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
     { path: 'settings/security', component: SecurityComponent, canActivate: [AuthGuard] },
-    { path: 'settings/profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuard] }
+    { path: 'settings/profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuard] },
+
+
+    { path: '', redirectTo: './login', pathMatch: 'full' },
+    { path: '**', redirectTo: './login'}
 ];
 

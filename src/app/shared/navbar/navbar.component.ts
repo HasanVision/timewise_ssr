@@ -77,12 +77,6 @@ export class NavbarComponent implements OnInit {
   }
 
   async logout() {
-    try {
-      await this.authService.logout();
-      this.isLoggedIn = false;
-      this.router.navigate(['/login']);
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
+   this.authService.logout();
   }
 }
