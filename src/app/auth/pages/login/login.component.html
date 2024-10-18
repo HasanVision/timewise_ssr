@@ -1,3 +1,4 @@
+<app-spinner *ngIf="isLoading">
 <div class="auth-page">
   <app-card title="Login 🔐 " subtitle="">
     <div class="login">
@@ -57,3 +58,6 @@
   </app-card>
   
 </div>
+</app-spinner>
+
+//  BUG: TO INVESTIGATE IF ANY EXTRA CALLS FOR SESSIONS ARE BEING MADE
