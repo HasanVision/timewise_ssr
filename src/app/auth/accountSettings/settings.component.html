@@ -2,10 +2,12 @@
   <div class="side-bar-div">
     <app-side-bar></app-side-bar>
   </div>
+  
   <div class="settings-main">
+    <app-update-name></app-update-name>
     <app-card title="Settings" subtitle="Modify your settings here">
       <div class="settings-container">
-        <app-update-name></app-update-name>
+        
           <form [formGroup]="form" (ngSubmit)="onSubmit()" >
             <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
             <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

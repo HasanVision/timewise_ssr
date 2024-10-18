@@ -7,6 +7,7 @@ import { LabelComponent } from '../../../ui/label/label.component';
 import { TooltipComponent } from '../../../ui/tooltip/tooltip.component';
 import { CommonModule } from '@angular/common';
 import { CurrentUser } from '../../authServices/getCurrentUser';
+import { environment} from '../../../../../config/environment'
 import axios from 'axios';
 
 
@@ -62,7 +63,7 @@ export class UpdateNameComponent implements OnInit {
 
       const { firstname, lastname } = this.form.value;
 
-      axios.post('http://localhost:4000/api/settings/update-name', { firstname, lastname }, { withCredentials: true })
+      axios.post(`${environment.apiUrl}/settings/update-name`, { firstname, lastname }, { withCredentials: true })
         .then(response => {
           this.isLoading = false;
           this.successMessage = response.data.message;
@@ -70,7 +71,6 @@ export class UpdateNameComponent implements OnInit {
         .catch(error => {
           this.isLoading = false;
           this.errorMessage = 'Error updating name';
-
     })
   }
 }
