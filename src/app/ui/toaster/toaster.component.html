@@ -1,0 +1,4 @@
+<div *ngIf="message" class="toaster {{ type }}">
+    {{ message }}
+    <app-button label="X" (click)="close()">   </app-button>
+  </div>
