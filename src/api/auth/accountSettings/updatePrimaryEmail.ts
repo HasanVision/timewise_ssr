@@ -1,5 +1,6 @@
 import { User } from "../../../../models/User";
 import { RequestHandler } from "express";
+import { Op } from "sequelize";
 
 export const UpdatePrimaryEmailApi: RequestHandler = async (req, res) => {
 
@@ -14,10 +15,19 @@ export const UpdatePrimaryEmailApi: RequestHandler = async (req, res) => {
             return;
         }
         
-        const existingUser = await User.findOne({ where: { primaryEmail } });
-        if (existingUser && existingUser.id !== userId) {
-             res.status(400).json({ message: 'This email is already in use by another account.' });
-             return;
+        const existingUser = await User.findOne({
+            where: {
+                id: { [Op.ne]: userId },
+                [Op.or]: [
+                    { primaryEmail },
+                    { secondaryEmail: primaryEmail }
+                ]
+            }
+        });
+
+        if (existingUser) {
+            res.status(400).json({ message: 'This email is already in use by another account.' });
+            return;
         }
 
         user.primaryEmail = primaryEmail;
