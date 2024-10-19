@@ -1,6 +1,8 @@
 import { User } from "../../../../models/User";
 import { RequestHandler } from "express";
 import { Op } from "sequelize";
+import { generateUpdatePrimaryEmailVToken } from "src/api/data/generateUpdatePrimaryEmailToken";
+import { sendPrimaryOTPEmailVerification } from "src/api/mail/mail";
 
 export const UpdatePrimaryEmailApi: RequestHandler = async (req, res) => {
 
@@ -30,10 +32,13 @@ export const UpdatePrimaryEmailApi: RequestHandler = async (req, res) => {
             return;
         }
 
-        user.primaryEmail = primaryEmail;
-        await user.save();
+        // user.primaryEmail = primaryEmail;
+        // await user.save();
 
-        res.status(200).json({ message: 'Primary email updated successfully' });
+
+        const tokenValue = await generateUpdatePrimaryEmailVToken(userId as number, primaryEmail)
+        await sendPrimaryOTPEmailVerification(primaryEmail, tokenValue)
+        res.status(200).json({ message: 'An email with OTP has been sent to you!' });
 
     } catch (error) {
         console.error('Error updating primary email:', error);

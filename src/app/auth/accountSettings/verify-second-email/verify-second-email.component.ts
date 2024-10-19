@@ -28,7 +28,7 @@ export class VerifySecondEmailComponent implements OnInit {
       return;
     }
   
-    console.log('Token from URL:', token);
+    // console.log('Token from URL:', token);
   
     try {
       // Send request to verify the secondary email using the token

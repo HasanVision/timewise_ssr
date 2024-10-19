@@ -19,7 +19,7 @@ export class MagicLinkComponent implements OnInit {
       this.message = 'No token provided.';
       return;
     }
-    console.log('Token from URL:', token);
+    // console.log('Token from URL:', token);s
     
     if (token) {
       try {

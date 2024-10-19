@@ -20,7 +20,7 @@ export class Token extends Model {
   email!: string;
 
   @Column({
-    type: DataType.ENUM('reset_password_verification', 'email_verification', 'secondary_email_verification'),
+    type: DataType.ENUM('reset_password_verification', 'email_verification', 'secondary_email_verification', 'primary_email_update_verification'),
     allowNull: false,
   })
   tokenType!: string;

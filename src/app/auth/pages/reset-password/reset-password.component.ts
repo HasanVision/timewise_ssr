@@ -67,7 +67,7 @@ export class ResetPasswordComponent implements OnInit {
       this.isLoading = true;
       const { password } = this.form.value;
       const token = this.route.snapshot.queryParamMap.get('token');
-      console.log('Token from URL:', token);
+      // console.log('Token from URL:', token);
       if (!token) {
         this.errorMessage = 'Invalid or missing token';
         this.isLoading = false;
