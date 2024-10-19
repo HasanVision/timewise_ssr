@@ -30,7 +30,7 @@ export const UpdateSecondaryEmailApi: RequestHandler = async (req, res) => {
             return;
         }
 
-        // Generate the verification token using userId and secondaryEmail
+   
         const tokenValue = await generateSecondaryEmailVToken(userId as number, secondaryEmail);
         await sendSecondaryEmailVerification(secondaryEmail, tokenValue);
 

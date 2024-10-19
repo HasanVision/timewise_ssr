@@ -10,7 +10,7 @@
     "watch:backend": "tsc -w",
     "test": "ng test",
     "serve:ssr:timewise_ssr": "node dist/timewise_ssr/server/server.mjs",
-       "serve:ssr": "nodemon --watch src --exec 'npm run build && node dist/timewise_ssr/server/server.mjs'"
+    "serve:ssr": "nodemon"
   },
   "private": true,
   "dependencies": {

@@ -26,7 +26,7 @@ export const verifySecondaryEmailToken: RequestHandler = async (req, res) => {
             return;
         }
 
-        // Find the user using the token's userId instead of the email, as the email might not yet be in the user record
+
         const userId = tokenRecord.getDataValue('userId');
         const user = await User.findByPk(userId);
 
@@ -35,12 +35,11 @@ export const verifySecondaryEmailToken: RequestHandler = async (req, res) => {
             return;
         }
 
-        // Now update the user's secondary email since the token is valid
+
         user.secondaryEmail = email;
         user.secondaryEmailVerified = new Date();
         await user.save();
 
-        // Destroy the token after successful verification
         await Token.destroy({ where: { id: tokenRecord.getDataValue('id') } });
 
         res.status(200).json({ message: 'Secondary email verified successfully.' });

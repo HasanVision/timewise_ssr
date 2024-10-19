@@ -1,0 +1,6 @@
+{
+    "watch": ["src", "server"],
+    "ext": "ts,js",
+    "exec": "npm run build && node dist/timewise_ssr/server/server.mjs",
+    "delay": "500"
+  }
