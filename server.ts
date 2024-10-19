@@ -16,6 +16,8 @@ dotenv.config();
 
 export function app(): express.Express {
   
+
+  
   const server = express();
   server.use(bodyParser.json());
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));

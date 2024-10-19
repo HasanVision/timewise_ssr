@@ -41,6 +41,18 @@ export class User extends Model {
   set primaryEmail(value: string) {
     this.setDataValue('primaryEmail', value);
   }
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+    unique: true,
+  })
+  get secondaryEmail(): string {
+    return this.getDataValue('secondaryEmail');
+  }
+
+  set secondaryEmail(value: string) {
+    this.setDataValue('secondaryEmail', value);
+  }
 
   @Column({
     type: DataType.STRING,

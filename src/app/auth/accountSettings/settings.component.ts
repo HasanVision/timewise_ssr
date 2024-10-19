@@ -15,6 +15,7 @@ import axios from 'axios';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { UpdatePrimaryEmailComponent } from './update-primary-email/update-primary-email.component';
 import { UpdateNameComponent } from './update-name/update-name.component';
+import { UpdateSecondaryEmailComponent } from './update-secondary-email/update-secondary-email.component';
 
 @Component({
   selector: 'app-settings',
@@ -29,7 +30,8 @@ import { UpdateNameComponent } from './update-name/update-name.component';
     TooltipComponent,
     SideBarComponent,
     UpdateNameComponent,
-    UpdatePrimaryEmailComponent
+    UpdatePrimaryEmailComponent,
+    UpdateSecondaryEmailComponent
   ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']

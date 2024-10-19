@@ -12,6 +12,7 @@ import { SecurityComponent } from './auth/accountSettings/security/security.comp
 import { ProfileSettingsComponent } from './auth/accountSettings/profile-settings/profile-settings.component';
 import { UpdateNameComponent } from './auth/accountSettings/update-name/update-name.component';
 import { UpdatePrimaryEmailComponent } from './auth/accountSettings/update-primary-email/update-primary-email.component';
+import { UpdateSecondaryEmailComponent } from './auth/accountSettings/update-secondary-email/update-secondary-email.component';
 
 
 export const routes: Routes = [
@@ -29,6 +30,7 @@ export const routes: Routes = [
     { path: 'settings/profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuard] },
     { path: 'settings/update-name', component: UpdateNameComponent, canActivate: [AuthGuard] },
     { path: 'settings/update-primary-email', component: UpdatePrimaryEmailComponent, canActivate: [AuthGuard] },
+    { path: 'settings/update-secondary-email', component: UpdateSecondaryEmailComponent, canActivate:[AuthGuard]},
 
 
     { path: '', redirectTo: './login', pathMatch: 'full' },
