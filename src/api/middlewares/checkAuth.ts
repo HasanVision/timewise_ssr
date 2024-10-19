@@ -8,6 +8,7 @@ export const checkAuth:RequestHandler = (req: Request, res: Response, next: Next
       return next();
     } else {
       console.warn('Unauthorized access attempt detected');
-      return res.status(401).json({ message: 'Unauthorized access' });
+       res.status(401).json({ message: 'Unauthorized access' });
+       return
     }
   };

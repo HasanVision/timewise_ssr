@@ -5,9 +5,7 @@ import { generateSecondaryEmailVToken } from "src/api/data/generateSecondaryEmai
 import { sendSecondaryEmailVerification } from "src/api/mail/mail";
 
 export const UpdateSecondaryEmailApi: RequestHandler = async (req, res) => {
-
     const { secondaryEmail } = req.body;
-    
     const userId = req.session.userId;
 
     try {
@@ -32,14 +30,9 @@ export const UpdateSecondaryEmailApi: RequestHandler = async (req, res) => {
             return;
         }
 
-        user.secondaryEmail = secondaryEmail;
-        
         // Generate the verification token using userId and secondaryEmail
         const tokenValue = await generateSecondaryEmailVToken(userId as number, secondaryEmail);
         await sendSecondaryEmailVerification(secondaryEmail, tokenValue);
-
-        // Save the updated user with the new secondary email
-        // await user.save();
 
         res.status(200).json({ message: 'Verification email sent to the provided secondary email.' });
 
@@ -47,4 +40,4 @@ export const UpdateSecondaryEmailApi: RequestHandler = async (req, res) => {
         console.error('Error updating secondary email:', error);
         res.status(500).json({ message: 'Server error secondary email api', error });
     }
-}
+};
