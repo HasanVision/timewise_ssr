@@ -32,7 +32,7 @@ export const routes: Routes = [
     { path: 'settings/update-name', component: UpdateNameComponent, canActivate: [AuthGuard] },
     { path: 'settings/update-primary-email', component: UpdatePrimaryEmailComponent, canActivate: [AuthGuard] },
     { path: 'settings/update-secondary-email', component: UpdateSecondaryEmailComponent, canActivate:[AuthGuard]},
-    { path: 'settings/verify-secondary-email', component: VerifySecondEmailComponent},
+    { path: 'settings/verify-secondary-email', component: VerifySecondEmailComponent, canActivate:[AuthGuard]},
 
 
     { path: '', redirectTo: './login', pathMatch: 'full' },

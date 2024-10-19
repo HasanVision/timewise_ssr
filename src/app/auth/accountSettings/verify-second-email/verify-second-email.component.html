@@ -1,9 +1,0 @@
-<div class="verification-container">
-    <div class="verification-card">
-      <h2>Email Verification</h2>
-      <p>{{ message }}</p>
-      <div *ngIf="message === 'Email verified successfully! Redirecting...'">
-        <button (click)="router.navigate(['/settings'])" class="btn">Go to Settings</button>
-      </div>
-    </div>
-  </div>

@@ -39,6 +39,11 @@ export class Token extends Model {
   })
   expiresAt!: Date;
 
+  // Getter method for expiresAt
+  getExpiresAt() {
+    return this.getDataValue('expiresAt');
+  }
+
 }
 
 // TODO: Combine both approaches: send a verification link containing a long token and, after the user clicks the link, ask them to enter the 6-digit code as an additional layer of security.
