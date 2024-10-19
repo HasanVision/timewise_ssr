@@ -53,20 +53,11 @@ export class VerifySecondEmailComponent implements OnInit {
         console.error('Axios error during email verification:', error);
         if (error.response) {
           console.error('Response status:', error.response.status);
-          console.error('Response data:', error.response.data);
-          console.error('Response headers:', error.response.headers);
-          this.message = error.response.data.message || 'Error verifying email. Please try again later.';
-        } else if (error.request) {
-          console.error('No response received:', error.request);
-          this.message = 'No response from server. Please try again later.';
-        } else {
-          console.error('Error setting up request:', error.message);
-          this.message = 'An unexpected error occurred. Please try again later.';
-        }
       } else {
         console.error('Unexpected error during email verification:', error);
         this.message = 'An unexpected error occurred. Please try again later.';
       }
     }
+  }
   }
 }
