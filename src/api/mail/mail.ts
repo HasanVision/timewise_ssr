@@ -74,16 +74,31 @@ export const sendPasswordResetSuccessEmail = async (email: string) => {
     console.error('Error sending password reset success email:', error);
   }
 };
-// export const sendSecondaryEmailVerification= async (email: string, token: string) => {
-//   const verificationLink = `${domain}/verify-secondary-email?token=${token}`;
+export const sendSecondaryEmailVerification= async (email: string, token: string) => {
+  const verificationLink = `${domain}/settings/verify-secondary-email?token=${token}`;
 
-//   await resend.emails.send({
-//     from: "verify@oxygen365.net",
-//     to: email,
-//     subject: "Verify your secondary email",
-//     html: `<p>Click <a href="${verificationLink}"> here </a> to verify your secondary email!</p>`,
-//   });
-// }
+  await resend.emails.send({
+    from: "verify-secondary@oxygen365.net",
+    to: email,
+    subject: "Verify your secondary email",
+    html: `<p>Click <a href="${verificationLink}"> here </a> to verify your secondary email!</p>`,
+  });
+}
+
+export const sendPrimaryOTPEmailVerification = async (email: string, token: string) => {
+  await resend.emails.send({
+    from: "verify-otp@oxygen365.net",
+    to: email,
+    subject: "Verify your Primary Email - OTP",
+    html: `
+      <p>Hello,</p>
+      <p>Your one-time password (OTP) for verifying your primary email is:</p>
+      <h2>${token}</h2>
+      <p>Please enter this code on the verification page to confirm your email address.</p>
+      <p>If you did not request this change, please ignore this email.</p>
+    `,
+  });
+}
 
 
 // export const sendIPAlertEmail = async (email: string, ipInfo: any) => {

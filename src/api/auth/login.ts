@@ -1,30 +1,33 @@
 import { Request, RequestHandler, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { User } from '../../../models/User'; 
+import { Op } from 'sequelize';
 
-declare module 'express-session' {
-  interface SessionData {
-    userId: number;
-  }
-}
 
-const login: RequestHandler = async (req, res) => {
+const login: RequestHandler = async (req: Request, res: Response) => {
 //   console.log('Login route hit');
   const { email, password } = req.body; 
 
   try {
   
-    const user = await User.findOne({ where: { primaryEmail: email } });
+    const user = await User.findOne({
+      where: {
+        [Op.or]: [{ primaryEmail: email }, { secondaryEmail: email }],
+      },
+    });
     if (!user) {
        res.status(400).json({ message: 'User not found' });
        return;
     }
 
    
-   //  console.log('Retrieved user:', user);
+    // console.log('Retrieved user:', user);
     
   
-    const storedPassword = user.get('password') ;
+    const storedPassword = user.password ;
+    if (!storedPassword) {
+      res.status(400).json({ message: 'invalid credentials'})
+    }
    //  console.log('Retrieved password:', storedPassword);
 
 
@@ -38,6 +41,7 @@ const login: RequestHandler = async (req, res) => {
     req.session.userId = user.id;
     req.session.save((err) => {
       if (err) {
+        console.error('Error saving session:', err);
          res.status(500).json({ message: 'Session saving failed' });
          return;
       }

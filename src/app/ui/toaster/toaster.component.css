@@ -1,0 +1,32 @@
+/* toaster.component.css */
+.toaster {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .toaster.success {
+    background-color: green;
+  }
+  
+  .toaster.error {
+    background-color: red;
+  }
+  
+  .toaster.info {
+    background-color: blue;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }

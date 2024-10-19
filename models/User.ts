@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, Unique } from 'sequelize-typescript';
 
 @Table({
   tableName: 'users',
@@ -29,10 +29,10 @@ export class User extends Model {
     this.setDataValue('lastName', value);
   }
 
+  @Unique('unique_email')
   @Column({
     type: DataType.STRING,
     allowNull: false,
-    unique: true,
   })
   get primaryEmail(): string {
     return this.getDataValue('primaryEmail');
@@ -40,6 +40,19 @@ export class User extends Model {
 
   set primaryEmail(value: string) {
     this.setDataValue('primaryEmail', value);
+  }
+
+  @Unique('unique_email')
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  get secondaryEmail(): string {
+    return this.getDataValue('secondaryEmail');
+  }
+
+  set secondaryEmail(value: string) {
+    this.setDataValue('secondaryEmail', value);
   }
 
   @Column({
@@ -58,11 +71,11 @@ export class User extends Model {
     type: DataType.DATE,
     allowNull: true,
   })
-  get primaryEmailVerified(): Date | undefined {
+  get primaryEmailVerified(): Date {
     return this.getDataValue('primaryEmailVerified');
   }
 
-  set primaryEmailVerified(value: Date | undefined) {
+  set primaryEmailVerified(value: Date ) {
     this.setDataValue('primaryEmailVerified', value);
   }
 
@@ -70,11 +83,11 @@ export class User extends Model {
     type: DataType.DATE,
     allowNull: true,
   })
-  get secondaryEmailVerified(): Date | undefined {
+  get secondaryEmailVerified(): Date {
     return this.getDataValue('secondaryEmailVerified');
   }
 
-  set secondaryEmailVerified(value: Date | undefined) {
+  set secondaryEmailVerified(value: Date ) {
     this.setDataValue('secondaryEmailVerified', value);
   }
 }

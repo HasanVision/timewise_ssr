@@ -1,0 +1,12 @@
+<app-card>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+        <app-label text="Secondary Email address" for="secondaryEmail"></app-label>
+        <app-input-text id="email" formControlName="secondaryEmail"  />
+        <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <app-button type="submit" [disabled]="form.invalid || isLoading">Save Settings</app-button>
+        <div *ngIf="isLoading">Update</div>
+      </form>
+
+</app-card>

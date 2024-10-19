@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from '../../../ui/button/button.component';
+import { ButtonComponent } from '@app/ui/button/button.component';
 import { InputTextComponent } from '../../../ui/input-text/input-text.component';
 import { ErrorComponent } from "../../../ui/error/error.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -80,10 +80,10 @@ export class RegisterComponent {
           primaryEmail,
           password,
         });
-        // Set success message
+        
         this.successMessage =
           'Email verification link has been sent to your email address. Please verify your email to login.';
-        this.registerError = null; // Clear any previous errors
+        this.registerError = null; 
         
       } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -107,3 +107,7 @@ export class RegisterComponent {
   }
   
 }
+
+
+
+// TODO: modify the import alias 

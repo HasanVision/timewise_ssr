@@ -3,16 +3,25 @@ import bcrypt from 'bcryptjs';
 import { User } from '../../../models/User';
 import { generateMagicVerificationToken } from '../data/generateVerificationToken';
 import { sendMagicLinkEmail } from '../mail/mail';
+import { Op } from 'sequelize';
 
 const register = async (req: Request, res: Response) => {
   const { firstName, lastName, primaryEmail, password } = req.body;
 
   try {
     
-    const existingUser = await User.findOne({ where: { primaryEmail } });
+    const existingUser = await User.findOne({
+      where: {
+        [Op.or]: [
+          { primaryEmail },
+          { secondaryEmail: primaryEmail },
+        ],
+      },
+    });
+
     if (existingUser) {
-       res.status(400).json({ message: 'User already exists' });
-       return
+      res.status(400).json({ message: 'User already exists' });
+      return;
     }
 
 
@@ -35,7 +44,7 @@ if (verificationToken && verificationToken.token && verificationToken.primaryEma
 
   await sendMagicLinkEmail(verificationToken.primaryEmail, verificationToken.token);
 } else {
-  console.error('Failed to generate verification token or primaryEmail.');
+  console.error('Failed to generate verification token.');
 }
      
 

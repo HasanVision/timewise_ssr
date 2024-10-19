@@ -4,12 +4,12 @@ import { User } from '../../../models/User.js';
 import { sendWelcomeEmail } from '../mail/mail.js';
 
 
-declare module 'express-session' {
-  interface SessionData {
-    userId: number;
-  }
-}
-// TODO:  SHOULD FIX THIS TYPE GLOBALLY
+// declare module 'express-session' {
+//   interface SessionData {
+//     userId: number;
+//   }
+// }
+// TODO:  SHOULD FIX THIS TYPE GLOBALLY, probably fixed
 
 const magicVerifyToken: RequestHandler = async (req, res) => {
   let token = req.body.token;
@@ -61,7 +61,7 @@ const magicVerifyToken: RequestHandler = async (req, res) => {
 
     req.session.userId = user.id;
 
-    await sendWelcomeEmail(user.primaryEmail, user.firstName);
+    // await sendWelcomeEmail(user.primaryEmail, user.firstName);
 
   
     await VerificationToken.destroy({ where: { token } });
@@ -78,3 +78,4 @@ const magicVerifyToken: RequestHandler = async (req, res) => {
 export default magicVerifyToken;
 
 // TODO: put back the welcome email when deploying to production
+// BUG: WELCOME EMAIL IS SENDING TWICE
