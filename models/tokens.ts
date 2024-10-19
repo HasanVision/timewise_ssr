@@ -1,5 +1,5 @@
 import { Table, Column, Model, DataType, ForeignKey } from 'sequelize-typescript';
-import { User } from './User'; // assuming you have a User model
+import { User } from './User'; 
 
 @Table({
   tableName: 'tokens',
@@ -40,3 +40,5 @@ export class Token extends Model {
   expiresAt!: Date;
 
 }
+
+// TODO: Combine both approaches: send a verification link containing a long token and, after the user clicks the link, ask them to enter the 6-digit code as an additional layer of security.

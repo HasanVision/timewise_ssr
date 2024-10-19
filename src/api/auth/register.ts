@@ -20,7 +20,7 @@ const register = async (req: Request, res: Response) => {
     });
 
     if (existingUser) {
-      res.status(400).json({ message: 'User with this email already exists' });
+      res.status(400).json({ message: 'User already exists' });
       return;
     }
 
@@ -44,7 +44,7 @@ if (verificationToken && verificationToken.token && verificationToken.primaryEma
 
   await sendMagicLinkEmail(verificationToken.primaryEmail, verificationToken.token);
 } else {
-  console.error('Failed to generate verification token or primaryEmail.');
+  console.error('Failed to generate verification token.');
 }
      
 

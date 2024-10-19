@@ -4,12 +4,12 @@ import { User } from '../../../models/User.js';
 import { sendWelcomeEmail } from '../mail/mail.js';
 
 
-declare module 'express-session' {
-  interface SessionData {
-    userId: number;
-  }
-}
-// TODO:  SHOULD FIX THIS TYPE GLOBALLY
+// declare module 'express-session' {
+//   interface SessionData {
+//     userId: number;
+//   }
+// }
+// TODO:  SHOULD FIX THIS TYPE GLOBALLY, probably fixed
 
 const magicVerifyToken: RequestHandler = async (req, res) => {
   let token = req.body.token;

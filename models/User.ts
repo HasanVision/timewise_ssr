@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, Unique } from 'sequelize-typescript';
 
 @Table({
   tableName: 'users',
@@ -29,10 +29,10 @@ export class User extends Model {
     this.setDataValue('lastName', value);
   }
 
+  @Unique('unique_email')
   @Column({
     type: DataType.STRING,
     allowNull: false,
-    unique: true,
   })
   get primaryEmail(): string {
     return this.getDataValue('primaryEmail');
@@ -41,10 +41,11 @@ export class User extends Model {
   set primaryEmail(value: string) {
     this.setDataValue('primaryEmail', value);
   }
+
+  @Unique('unique_email')
   @Column({
     type: DataType.STRING,
     allowNull: true,
-    unique: true,
   })
   get secondaryEmail(): string {
     return this.getDataValue('secondaryEmail');

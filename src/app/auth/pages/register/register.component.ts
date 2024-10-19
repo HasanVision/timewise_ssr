@@ -80,10 +80,10 @@ export class RegisterComponent {
           primaryEmail,
           password,
         });
-        // Set success message
+        
         this.successMessage =
           'Email verification link has been sent to your email address. Please verify your email to login.';
-        this.registerError = null; // Clear any previous errors
+        this.registerError = null; 
         
       } catch (error) {
         if (axios.isAxiosError(error)) {

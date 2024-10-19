@@ -1,6 +1,8 @@
 import { User } from "../../../../models/User";
 import { RequestHandler } from "express";
 import { Op } from "sequelize";
+import { generateSecondaryEmailVToken } from "src/api/data/generateSecondaryEmailVToken";
+import { sendSecondaryEmailVerification } from "src/api/mail/mail";
 
 export const UpdateSecondaryEmailApi: RequestHandler = async (req, res) => {
 
@@ -26,14 +28,20 @@ export const UpdateSecondaryEmailApi: RequestHandler = async (req, res) => {
         });
 
         if (existingUser) {
-            res.status(400).json({ message: 'This email is already in use by another account.' });
+            res.status(400).json({ message: 'This email is already in use.' });
             return;
         }
 
         user.secondaryEmail = secondaryEmail;
-        await user.save();
+        
+        // Generate the verification token using userId and secondaryEmail
+        const tokenValue = await generateSecondaryEmailVToken(userId as number, secondaryEmail);
+        await sendSecondaryEmailVerification(secondaryEmail, tokenValue);
 
-        res.status(200).json({ message: 'Secondary email updated successfully' });
+        // Save the updated user with the new secondary email
+        // await user.save();
+
+        res.status(200).json({ message: 'Verification email sent to the provided secondary email.' });
 
     } catch (error) {
         console.error('Error updating secondary email:', error);

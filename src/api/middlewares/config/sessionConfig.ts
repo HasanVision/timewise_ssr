@@ -21,5 +21,7 @@ export const sessionConfig = session({
   saveUninitialized: false,
   cookie: {
     maxAge: 24 * 60 * 60 * 1000, // Session expiration time (1 day)
+    secure: process.env['NODE_ENV'] === 'production',
+    sameSite: 'strict'
   },
 });
