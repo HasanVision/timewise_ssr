@@ -1,84 +1,113 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font: 1rem 'Roboto', sans-serif;
-    scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 1rem 'Roboto', sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* Light theme applied via class */
 body.light-theme {
-  --primary-color: rgb(70, 92, 0); /* Indigo */
-  --accent-color: #e91e63;  /* Pink */
-  --background-color: #ffffff;
-  --text-color: #000000;
-
-
-  --card-background-color: #f9f9f9; 
-  --card-border-color: #e0e0e0;
-  --card-text-color: #333;
-  --card-header-color: #000;
-  --card-subtitle-color: #666; /* Slightly lighter */
+--primary-color: rgb(3, 11, 116); 
+--accent-color: #ff0055; 
+--background-color: #e8e8e8;
+--text-color: #000000;
+--secondary-color: #f5f5f5; 
+--shadow-color: rgba(0, 0, 0, 0.1); 
+--link-color: #3b5998; 
+--hover-color: #d32f2f;
+--success-color: #4caf50;
+--warning-color: #ff7700; 
+--error-color: #f44336; 
+--border-radius: 6px; 
+--transition: all 0.3s ease; 
 }
 
 /* System preference: Light theme */
 @media (prefers-color-scheme: light) {
-  body {
-    --primary-color: rgb(70, 92, 0); /* Indigo */
-    --accent-color: #e91e63;  /* Pink */
-    --background-color: #ffffff;
-    --text-color: #000000;
-  
-
-    --card-background-color: #f9f9f9; 
-    --card-border-color: #e0e0e0;
-    --card-text-color: #333;
-    --card-header-color: #000;
-    --card-subtitle-color: #666;
-  }
+body {
+--primary-color: rgb(3, 11, 116); 
+--accent-color: #ff0055; 
+--background-color: #e8e8e8;
+--text-color: #000000;
+--secondary-color: #f5f5f5; 
+--shadow-color: rgba(0, 0, 0, 0.1); 
+--link-color: #3b5998; 
+--hover-color: #d32f2f;
+--success-color: #4caf50;
+--warning-color: #ff7700; 
+--error-color: #f44336; 
+--border-radius: 6px; 
+--transition: all 0.3s ease; 
 }
-
+}
 
 /* Dark theme applied via class */
 body.dark-theme {
-  --primary-color: rgb(70, 92, 0); /* Blue Grey */
-  --accent-color: #ff5722;  /* Deep Orange */
-  --background-color: #000000;
-  --text-color: #b6b6b6;
-  --border: 1px solid #3a3a3a;
-  --border-radius: 6px;
-
-  --card-background-color: #1e1e1e;
-  --card-border-color: #3a3a3a;
-  --card-text-color: #e0e0e0;
-  --card-header-color: #ffffff;
-  --card-subtitle-color: #cccccc;
+--primary-color: rgb(3, 11, 116); 
+--accent-color: #ff0055;  
+--background-color: #000000; 
+--text-color: #b6b6b6;
+--secondary-color: #222222; 
+--shadow-color: rgba(194, 194, 194, 0.5); 
+--link-color: #90caf9; 
+--hover-color: #ff7043; 
+--success-color: #66bb6a;
+--warning-color: #ffa726;
+--error-color: #ef5350;
+--border-radius: 6px;
+--border: 1px solid #3a3a3a;
+--transition: all 0.3s ease;
 }
 
 /* System preference: Dark theme */
 @media (prefers-color-scheme: dark) {
-  body {
-    --primary-color: rgb(70, 92, 0); /* Blue Grey */
-    --accent-color: #ff5722;  /* Deep Orange */
-    --background-color: #000000;
-    --text-color: #b6b6b6;
-    --border: 1px solid #3a3a3a;
-    --card-background-color: #1e1e1e;
-    --card-border-color: #3a3a3a;
-    --card-text-color: #e0e0e0;
-    --card-header-color: #ffffff;
-    --card-subtitle-color: #cccccc;
-  }
+body {
+  --primary--primary-color: rgb(3, 11, 116); 
+--accent-color: #ff0055;  
+--background-color: #000000; 
+--text-color: #b6b6b6;
+--secondary-color: #222222; 
+--shadow-color: rgba(194, 194, 194, 0.5); 
+--link-color: #90caf9; 
+--hover-color: #ff7043; 
+--success-color: #66bb6a;
+--warning-color: #ffa726;
+--error-color: #ef5350;
+--border-radius: 6px;
+--border: 1px solid #3a3a3a;
+--transition: all 0.3s ease;
+}
 }
 
-
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+background-color: var(--background-color);
+color: var(--text-color);
+transition: var(--transition);
 }
 
 a {
-  text-decoration: none;
-  color: var(--text-color);
+text-decoration: none;
+/* color: var(--link-color); */
+transition: var(--transition);
+}
+
+/* a:hover {
+color: var(--hover-color);
+} */
+
+
+.alert-success {
+background-color: var(--success-color);
+color: #fff;
+}
+
+.alert-warning {
+background-color: var(--warning-color);
+color: #fff;
+}
+
+.alert-error {
+background-color: var(--error-color);
+color: #fff;
 }

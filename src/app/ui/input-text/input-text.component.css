@@ -16,16 +16,12 @@
 input {
   width: 100%;
   padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid rgb(79, 89, 45);
+  border: 1px solid var(--secondary-color);
+  background: var(--secondary-color);
   margin: 0.25rem 0;
-  border-radius: 5px;
-  box-sizing: border-box;
-  transition: border-color 0.3s;
-  background: rgb(20, 22, 15);
-  color: rgb(197, 197, 197);
+  border-radius: var(--border-radius);
+  color: var(--text-color);
 }
-
 
 [icon-left], [icon-right] {
   position: absolute;
@@ -46,17 +42,19 @@ input {
 
 
 input:focus {
-  border-color: #007bff;
+  border-color: var(--accent-color);
   outline: none;
+  
 }
 
 .input-error {
-  border-color: #ff4d4f;
+  /* border-color: var(--warning-color); */
 }
-  input.input-error {
-    border-color: red;
-  }
-  
+
+  /* input.input-error {
+    border-color: var(--warning-color);
+  } */
+  /* 
   .error-message {
     color: red;
     font-size: 0.875rem;
@@ -66,4 +64,4 @@ input:focus {
   .input-text input.input-error {
     border: 2px solid red;
     background-color: #ffe6e6;
-  }
+  } */
