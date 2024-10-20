@@ -6,7 +6,7 @@ export const verifyPrimaryEmailUpdateToken: RequestHandler = async (req, res) =>
     const { token, userId } = req.body;
 
     if (!token || !userId) {
-        res.status(400).json({ message: 'Token and user ID are required' });
+        res.status(400).json({ message: 'Token and userId are required' });
         return;
     }
 
@@ -27,9 +27,12 @@ export const verifyPrimaryEmailUpdateToken: RequestHandler = async (req, res) =>
             return;
         }
 
+        // Update primaryEmail and primaryEmailVerified
         user.primaryEmail = tokenRecord.getDataValue('email');
+        user.primaryEmailVerified = new Date(); // Set the verified date to now
         await user.save();
 
+        // Remove the token after successful verification
         await Token.destroy({ where: { id: tokenRecord.getDataValue('id') } });
 
         res.status(200).json({ message: 'Primary email updated successfully.' });

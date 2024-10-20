@@ -37,7 +37,7 @@ export const UpdatePrimaryEmailApi: RequestHandler = async (req, res) => {
 
 
         const tokenValue = await generateUpdatePrimaryEmailVToken(userId as number, primaryEmail)
-        await sendPrimaryOTPEmailVerification(primaryEmail, tokenValue)
+        // await sendPrimaryOTPEmailVerification(primaryEmail, tokenValue)
         res.status(200).json({ message: 'An email with OTP has been sent to you!' });
 
     } catch (error) {

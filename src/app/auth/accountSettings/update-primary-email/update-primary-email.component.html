@@ -7,8 +7,15 @@
             <app-input-text id="email" formControlName="primaryEmail"  />
             <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
             <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-            <app-button type="submit" [disabled]="form.invalid || isLoading">Save Settings</app-button>
+            <app-button 
+            type="submit" 
+            [variant]="isEmailVerified ? 'primary' : 'danger'"
+            [disabled]="form.invalid || isLoading">
+            Save Settings
+          </app-button>
             <div *ngIf="isLoading">Update</div>
           </form>
+
+          <app-verify-primary-email-otp *ngIf="showOtpModal" (closeModal)="closeOtpModal()"></app-verify-primary-email-otp>
 
 </app-card>

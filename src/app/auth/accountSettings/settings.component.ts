@@ -71,8 +71,4 @@ async ngOnInit() {
     this.errorMessage = 'Error loading user data.';
   }
 }
-
-  onSubmit() {
-    
-  }
 }
