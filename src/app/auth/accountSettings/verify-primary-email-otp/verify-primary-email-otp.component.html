@@ -1,0 +1,10 @@
+<app-modal title="Verify One time password!">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-input-text id="otp" formControlName="otp" />
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <app-button type="submit" label="Confirm" [variant]="'primary'"></app-button>
+    <app-button label="Cancel" [variant]="'secondary'" [disabled]="form.invalid || isLoading"></app-button>
+</form>
+</app-modal>

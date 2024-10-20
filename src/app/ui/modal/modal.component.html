@@ -1,1 +1,15 @@
-<p>modal works!</p>
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <header class="modal-header">
+        <h2>{{ title }}</h2>
+        <button class="close-btn" (click)="closeModal()">×</button>
+      </header>
+      <div class="modal-content">
+        <ng-content></ng-content>
+      </div>
+      <footer class="modal-footer" *ngIf="showFooter">
+        <app-button (click)="confirm()">Confirm</app-button>
+        <app-button variant="secondary" (click)="closeModal()">Cancel</app-button>
+      </footer>
+    </div>
+  </div>

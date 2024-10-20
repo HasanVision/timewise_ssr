@@ -14,6 +14,7 @@ import { UpdateNameComponent } from './auth/accountSettings/update-name/update-n
 import { UpdatePrimaryEmailComponent } from './auth/accountSettings/update-primary-email/update-primary-email.component';
 import { UpdateSecondaryEmailComponent } from './auth/accountSettings/update-secondary-email/update-secondary-email.component';
 import {VerifySecondEmailComponent} from './auth/accountSettings/verify-second-email/verify-second-email.component';
+import {VerifyPrimaryEmailOTPComponent} from './auth/accountSettings/verify-primary-email-otp/verify-primary-email-otp.component'
 
 
 export const routes: Routes = [
@@ -33,6 +34,7 @@ export const routes: Routes = [
     { path: 'settings/update-primary-email', component: UpdatePrimaryEmailComponent, canActivate: [AuthGuard] },
     { path: 'settings/update-secondary-email', component: UpdateSecondaryEmailComponent, canActivate:[AuthGuard]},
     { path: 'settings/verify-secondary-email', component: VerifySecondEmailComponent, canActivate:[AuthGuard]},
+    { path: 'settings/verify-otp-primary-email-update', component: VerifyPrimaryEmailOTPComponent, canActivate:[AuthGuard]},
 
 
     { path: '', redirectTo: './login', pathMatch: 'full' },
