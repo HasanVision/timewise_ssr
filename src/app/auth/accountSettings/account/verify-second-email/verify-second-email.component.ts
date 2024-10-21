@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AuthService } from '../../authServices/auth.service';
+import { AuthService } from '../../../authServices/auth.service';
 import { environment } from 'config/environment';
 import axios, { AxiosError } from 'axios';
 

@@ -13,7 +13,7 @@ import { ProfileSettingsComponent } from './auth/accountSettings/profile-setting
 import { UpdateNameComponent } from './auth/accountSettings/account/update-name/update-name.component';
 import { UpdatePrimaryEmailComponent } from './auth/accountSettings/account/update-primary-email/update-primary-email.component';
 import { UpdateSecondaryEmailComponent } from './auth/accountSettings/account/update-secondary-email/update-secondary-email.component';
-import { VerifySecondEmailComponent } from './auth/accountSettings/verify-second-email/verify-second-email.component';
+import { VerifySecondEmailComponent } from './auth/accountSettings/account/verify-second-email/verify-second-email.component';
 import { VerifyPrimaryEmailOTPComponent } from './auth/accountSettings/account/verify-primary-email-otp/verify-primary-email-otp.component';
 import { SettingLayoutComponent } from './auth/accountSettings/setting-layout.component';
 

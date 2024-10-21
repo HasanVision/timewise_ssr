@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SvgIconComponent } from '../../../assets/svg-icon.component';
+import { SvgIconComponent } from '../assets/svg-icon.component';
 import { RouterLink } from '@angular/router';
 
 @Component({

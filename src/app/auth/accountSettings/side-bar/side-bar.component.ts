@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../ui/button/button.component';
 import { CardComponent } from '../../../ui/card/card.component';
-import { SvgIconComponent } from 'src/assets/svg-icon.component';
+import { SvgIconComponent } from '@app/ui/assets/svg-icon.component';
 
 @Component({
   selector: 'app-side-bar',
