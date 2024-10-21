@@ -2,9 +2,8 @@
   <div class="navbar__left">
     <!-- Dashboard button with an icon -->
     <div *ngIf="isLoggedIn">
-      <app-button variant="ghost">
+      <app-button variant="ghost" label="Dashboard" icon="home">
         <a href="/dashboard">
-          <fa-icon [icon]="faHome"></fa-icon> Dashboard
         </a>
       </app-button>
     </div>
@@ -12,17 +11,14 @@
 
   <div class="navbar__right">
     <!-- Settings button with an icon -->
-    <div *ngIf="isLoggedIn">
-      <app-button variant="secondary">
+    <div *ngIf="isLoggedIn" >
+      <app-button variant="secondary" label="Settings" icon="settings">
         <a href="/settings">
-          <fa-icon [icon]="faCog"></fa-icon> Settings
         </a>
       </app-button>
     </div>
 
-    <app-button variant="secondary" (click)="toggleTheme()"   >
-      <fa-icon [icon]="isDarkTheme ? faSun : faMoon"></fa-icon> 
-    </app-button>
+    <app-button variant="secondary" (click)="toggleTheme()" [icon]=" isDarkTheme ?  'light_mode' : 'dark_mode'"></app-button> 
 
     
 

@@ -1,15 +1,33 @@
+<!-- button.component.html -->
 <button
   [type]="type"
-
   [disabled]="disabled"
   [ngClass]="[
     fullWidth ? 'full-width' : '',
     variant,
-    size,
-    
+    size
   ]"
 >
+  <!-- Conditionally render the icon if icon input is provided -->
+  <ng-container *ngIf="icon && iconPosition === 'left'">
+    <app-svg-icon
+      [name]="icon"
+      [size]="iconSize"
+      class="icon"
+      *ngIf="iconPosition === 'left'"
+    ></app-svg-icon>
+  </ng-container>
+
   <ng-content></ng-content>
-  
+
   {{ label }}
+
+  <!-- Render the icon if it's positioned on the right -->
+  <ng-container *ngIf="icon && iconPosition === 'right'">
+    <app-svg-icon
+      [name]="icon"
+      [size]="iconSize"
+      class="icon"
+    ></app-svg-icon>
+  </ng-container>
 </button>

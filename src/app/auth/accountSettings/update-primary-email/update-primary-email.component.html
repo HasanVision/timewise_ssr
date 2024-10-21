@@ -10,8 +10,9 @@
             <app-button 
             type="submit" 
             [variant]="isEmailVerified ? 'primary' : 'danger'"
-            [disabled]="form.invalid || isLoading">
-            Update & Verify
+            [disabled]="form.invalid || isLoading"
+            label="Update & verify">
+           
           </app-button>
             <div *ngIf="isLoading">Update</div>
           </form>

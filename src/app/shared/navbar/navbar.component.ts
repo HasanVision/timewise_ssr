@@ -76,6 +76,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  get themeIcon() {
+    return this.isDarkTheme ? 'light_mode' : 'dark_mode';
+  }
+
   async logout() {
    this.authService.logout();
   }
