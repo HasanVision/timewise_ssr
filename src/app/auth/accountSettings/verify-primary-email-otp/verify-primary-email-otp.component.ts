@@ -21,7 +21,7 @@ export class VerifyPrimaryEmailOTPComponent implements OnInit {
   isLoading = false;
   errorMessage: string = '';
   successMessage: string = '';
-  userId: number | null = null;
+  userId: number | null = null; 
 
   @Output() closeModal = new EventEmitter<void>();
 
@@ -50,7 +50,7 @@ export class VerifyPrimaryEmailOTPComponent implements OnInit {
       this.isLoading = true;
       this.errorMessage = '';
       const { otp } = this.form.value;
-      console.log('User ID:', this.userId);
+      // console.log('User ID:', this.userId);
 
       try {
         const response = await axios.post(

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '@app/ui/button/button.component';
 import { InputTextComponent } from '../../../ui/input-text/input-text.component';
-import { ErrorComponent } from "../../../ui/error/error.component";
+import { ErrorComponent } from "../error/error.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';

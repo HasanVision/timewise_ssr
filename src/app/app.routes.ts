@@ -5,7 +5,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { MagicLinkComponent } from './auth/pages/magic-link/magic-link.component';
 import { SettingsComponent } from './auth/accountSettings/settings.component';
-import { ForgotPasswordComponent} from './auth/pages/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './auth/pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './auth/pages/reset-password/reset-password.component';
 import { NotificationsComponent } from './auth/accountSettings/notifications/notifications.component';
 import { SecurityComponent } from './auth/accountSettings/security/security.component';
@@ -13,31 +13,35 @@ import { ProfileSettingsComponent } from './auth/accountSettings/profile-setting
 import { UpdateNameComponent } from './auth/accountSettings/update-name/update-name.component';
 import { UpdatePrimaryEmailComponent } from './auth/accountSettings/update-primary-email/update-primary-email.component';
 import { UpdateSecondaryEmailComponent } from './auth/accountSettings/update-secondary-email/update-secondary-email.component';
-import {VerifySecondEmailComponent} from './auth/accountSettings/verify-second-email/verify-second-email.component';
-import {VerifyPrimaryEmailOTPComponent} from './auth/accountSettings/verify-primary-email-otp/verify-primary-email-otp.component'
-
+import { VerifySecondEmailComponent } from './auth/accountSettings/verify-second-email/verify-second-email.component';
+import { VerifyPrimaryEmailOTPComponent } from './auth/accountSettings/verify-primary-email-otp/verify-primary-email-otp.component';
 
 export const routes: Routes = [
-    { path: 'register', component: RegisterComponent },
-    { path: 'verify-magic-link', component: MagicLinkComponent },
-    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: LoginComponent },
-    { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-    { path: 'forgot-password', component: ForgotPasswordComponent },
-    { path: 'new-password', component: ResetPasswordComponent},
-   
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'new-password', component: ResetPasswordComponent },
+  { path: 'verify-magic-link', component: MagicLinkComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
-    { path: 'settings/notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
-    { path: 'settings/security', component: SecurityComponent, canActivate: [AuthGuard] },
-    { path: 'settings/profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuard] },
-    { path: 'settings/update-name', component: UpdateNameComponent, canActivate: [AuthGuard] },
-    { path: 'settings/update-primary-email', component: UpdatePrimaryEmailComponent, canActivate: [AuthGuard] },
-    { path: 'settings/update-secondary-email', component: UpdateSecondaryEmailComponent, canActivate:[AuthGuard]},
-    { path: 'settings/verify-secondary-email', component: VerifySecondEmailComponent, canActivate:[AuthGuard]},
-    { path: 'settings/verify-otp-primary-email-update', component: VerifyPrimaryEmailOTPComponent, canActivate:[AuthGuard]},
+  
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'profile-settings', pathMatch: 'full' },
+      { path: 'notifications', component: NotificationsComponent },
+      { path: 'security', component: SecurityComponent },
+      { path: 'profile-settings', component: ProfileSettingsComponent },
+      { path: 'update-name', component: UpdateNameComponent },
+      { path: 'update-primary-email', component: UpdatePrimaryEmailComponent },
+      { path: 'update-secondary-email', component: UpdateSecondaryEmailComponent },
+      { path: 'verify-secondary-email', component: VerifySecondEmailComponent },
+      { path: 'verify-otp-primary-email-update', component: VerifyPrimaryEmailOTPComponent },
+    ],
+  },
 
-
-    { path: '', redirectTo: './login', pathMatch: 'full' },
-    // { path: '**', redirectTo: './login'}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/' }, 
 ];
-

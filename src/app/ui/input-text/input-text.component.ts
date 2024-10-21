@@ -1,7 +1,7 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ErrorComponent } from '../error/error.component';
+import { ErrorComponent } from '../../auth/pages/error/error.component';
 
 @Component({
   selector: 'app-input-text',

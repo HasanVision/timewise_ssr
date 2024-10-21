@@ -12,12 +12,13 @@ button {
 
 /* Variants */
 button.primary {
-  background: rgb(70, 92, 0);
-  color: white;
+  background: var(--primary-color);
+  color: whitesmoke
+
 }
 
 button.secondary {
-  background-color:rgb(57, 66, 21);
+  background-color:var(--secondary-color);
   color: white;
 }
 
@@ -44,11 +45,12 @@ button.ghost {
   background: none;
   cursor: pointer;
   transition: color 0.3s;
-  border: 1px solid #4a729d;
+  color: var(--text-color);
+
 }
 button.ghost:hover {
-  background: #4a729d;
-  color: #ffffff;
+  background: var(--shadow-color);
+  /* color: #ffffff; */
 } 
 
 /* Sizes */
