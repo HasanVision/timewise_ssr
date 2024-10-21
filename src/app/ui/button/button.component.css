@@ -1,61 +1,61 @@
-
+/* Button Base Styles */
 button {
-
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: background-color 0.5s;
+  justify-content: center; /* Centers icon and label horizontally */
+  gap: 8px; /* Space between icon and label */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Variants */
 button.primary {
   background: var(--primary-color);
-  color: whitesmoke
-
+  color: whitesmoke;
 }
 
 button.secondary {
-  background-color:var(--secondary-color);
+  background-color: var(--secondary-color);
   color: white;
 }
 
-button.outline{
+button.outline {
   background: none;
-  border: 1px solid rgb(79, 89, 45);
-  color: rgb(79, 89, 45);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 button.danger {
   background-color: #f30018;
   color: #fff;
 }
-button.link{
-  background: none;;
+
+button.link {
+  background: none;
   color: rgb(197, 197, 197);
 }
-button.link:hover{
-  /* background: rgb(79, 89, 45); */
-  border: 1px solid rgb(79, 89, 45);
+
+button.link:hover {
+  border: 1px solid var(--primary-color);
   color: #fff;
 }
+
 button.ghost {
   background: none;
   cursor: pointer;
-  transition: color 0.3s;
   color: var(--text-color);
-
+  transition: background-color 0.3s, color 0.3s;
 }
+
 button.ghost:hover {
   background: var(--shadow-color);
-  /* color: #ffffff; */
-} 
+}
 
 /* Sizes */
 button.small {
-  padding: 0.25rem 0.25rem;
+  padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
 }
 
@@ -74,13 +74,22 @@ button.full-width {
   width: 100%;
 }
 
-/* Icon styles */
-button i.material-icons {
+/* Icon Styles */
+button .icon {
+  display: inline-flex; /* Changed to inline-flex for better alignment */
+  align-items: center; /* Vertically center the icon */
+  justify-content: center; /* Horizontally center the icon */
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor; /* Adjust the icon color to match the button text color */
+}
+
+/* Icon Positioning */
+button .icon.left {
   margin-right: 0.5rem;
 }
 
-button i.material-icons.right {
-  margin-right: 0;
+button .icon.right {
   margin-left: 0.5rem;
 }
 
@@ -89,21 +98,5 @@ button:disabled {
   background: rgba(69, 72, 75, 0.5);
   color: #fff;
   cursor: not-allowed;
-}
-
-
-
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; 
-}
-
-button fa-icon:first-child {
-  margin-right: 8px;
-}
-
-button fa-icon:last-child {
-  margin-left: 8px;
+  opacity: 0.6;
 }

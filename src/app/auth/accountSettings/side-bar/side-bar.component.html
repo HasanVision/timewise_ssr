@@ -1,23 +1,16 @@
 <div class="side-bar">
     <div id="buttons-main-sidbar">
-        <app-button variant="ghost">
-         
-            <a href="/settings">Account Settings</a>
+        <app-button variant="ghost" label="Account settings" icon="settings">
+            <a href="/settings"></a>
         </app-button>
-        <app-button variant="ghost">
-          
-            <a href="/settings/profile-settings">Profile settings</a>
+        <app-button variant="ghost" label="Profile settings" icon="person">
+            <a href="/settings/profile-settings"></a>
+        </app-button >
+        <app-button variant="ghost" label="Notifications settings" icon="notifications">
+                <a href="/settings/notifications"></a>
         </app-button>
-        <app-button variant="ghost">
-            <div class="button-content">
-                <a href="/settings/notifications">Notifications settings</a>
-                <app-svg-icon name="security" size="24" ></app-svg-icon>
-            </div>
-        </app-button>
-        <app-button variant="ghost">
-            <div class="button-content">
-                <a href="/settings/security">Security</a>
-            </div>
+        <app-button variant="ghost" label="Security" icon="security">
+                <a href="/settings/security"></a>
         </app-button>
     </div>
 </div>

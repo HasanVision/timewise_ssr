@@ -1,13 +1,12 @@
 <app-card >
     <div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
             <div>
                 <app-label text="First name" for="firstname"></app-label>
                 <app-input-text id="firstname" formControlName="firstname" />
                 <app-label text="Last name" for="lastname"></app-label>
                 <app-input-text id="lastname" formControlName="lastname" />
-                <app-button type="submit" [disabled]="form.invalid || isLoading">Update</app-button>
+                <app-button label="Update" type="submit" [disabled]="form.invalid || isLoading"></app-button>
             </div>
             <div *ngIf="isLoading">Saving...</div>
             <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
