@@ -19,7 +19,7 @@ export class ToasterComponent implements OnInit {
     this.toasterService.getMessage().subscribe((toast) => {
       this.message = toast.message;
       this.type = toast.type;
-      setTimeout(() => this.close(), 5000); // Auto-close after 3 seconds
+      setTimeout(() => this.close(), 5000);
     });
   }
 

@@ -12,9 +12,9 @@ import { TooltipComponent } from '../../../ui/tooltip/tooltip.component';
 import { CurrentUser } from '../../authServices/getCurrentUser';
 import axios from 'axios';
 import { SideBarComponent } from '../side-bar/side-bar.component';
-import { UpdatePrimaryEmailComponent } from '../update-primary-email/update-primary-email.component';
-import { UpdateNameComponent } from '../update-name/update-name.component';
-import { UpdateSecondaryEmailComponent } from '../update-secondary-email/update-secondary-email.component';
+import { UpdatePrimaryEmailComponent } from './update-primary-email/update-primary-email.component';
+import { UpdateNameComponent } from './update-name/update-name.component';
+import { UpdateSecondaryEmailComponent } from './update-secondary-email/update-secondary-email.component';
 
 @Component({
   selector: 'app-account-settings',

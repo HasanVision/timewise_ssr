@@ -10,11 +10,11 @@ import { ResetPasswordComponent } from './auth/pages/reset-password/reset-passwo
 import { NotificationsComponent } from './auth/accountSettings/notifications/notifications.component';
 import { SecurityComponent } from './auth/accountSettings/security/security.component';
 import { ProfileSettingsComponent } from './auth/accountSettings/profile-settings/profile-settings.component';
-import { UpdateNameComponent } from './auth/accountSettings/update-name/update-name.component';
-import { UpdatePrimaryEmailComponent } from './auth/accountSettings/update-primary-email/update-primary-email.component';
-import { UpdateSecondaryEmailComponent } from './auth/accountSettings/update-secondary-email/update-secondary-email.component';
+import { UpdateNameComponent } from './auth/accountSettings/account/update-name/update-name.component';
+import { UpdatePrimaryEmailComponent } from './auth/accountSettings/account/update-primary-email/update-primary-email.component';
+import { UpdateSecondaryEmailComponent } from './auth/accountSettings/account/update-secondary-email/update-secondary-email.component';
 import { VerifySecondEmailComponent } from './auth/accountSettings/verify-second-email/verify-second-email.component';
-import { VerifyPrimaryEmailOTPComponent } from './auth/accountSettings/verify-primary-email-otp/verify-primary-email-otp.component';
+import { VerifyPrimaryEmailOTPComponent } from './auth/accountSettings/account/verify-primary-email-otp/verify-primary-email-otp.component';
 import { SettingLayoutComponent } from './auth/accountSettings/setting-layout.component';
 
 export const routes: Routes = [

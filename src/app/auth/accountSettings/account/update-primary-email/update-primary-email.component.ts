@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators  } from '@angular/forms';
 import { ButtonComponent } from '@app/ui/button/button.component';
-import { environment } from '../../../../../config/environment';
+import { environment } from '../../../../../../config/environment';
 import { InputTextComponent } from '@app/ui/input-text/input-text.component';
 import { CardComponent } from '@app/ui/card/card.component';
 import { LabelComponent } from '@app/ui/label/label.component';

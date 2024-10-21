@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from '../../../ui/button/button.component';
-import { CardComponent } from '../../../ui/card/card.component';
-import { InputTextComponent } from '../../../ui/input-text/input-text.component';
-import { LabelComponent } from '../../../ui/label/label.component';
-import { TooltipComponent } from '../../../ui/tooltip/tooltip.component';
+import { ButtonComponent } from '../../../../ui/button/button.component';
+import { CardComponent } from '../../../../ui/card/card.component';
+import { InputTextComponent } from '../../../../ui/input-text/input-text.component';
+import { LabelComponent } from '../../../../ui/label/label.component';
+import { TooltipComponent } from '../../../../ui/tooltip/tooltip.component';
 import { CommonModule } from '@angular/common';
-import { CurrentUser } from '../../authServices/getCurrentUser';
-import { environment} from '../../../../../config/environment'
+import { CurrentUser } from '../../../authServices/getCurrentUser';
+import { environment} from '../../../../../../config/environment'
 import axios from 'axios';
 
 
