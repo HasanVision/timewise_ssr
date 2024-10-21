@@ -74,14 +74,18 @@ button.full-width {
   width: 100%;
 }
 
+button.align-left {
+  justify-content: start; 
+}
+
 /* Icon Styles */
 button .icon {
-  display: inline-flex; /* Changed to inline-flex for better alignment */
-  align-items: center; /* Vertically center the icon */
-  justify-content: center; /* Horizontally center the icon */
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
   width: 1.2em;
   height: 1.2em;
-  fill: currentColor; /* Adjust the icon color to match the button text color */
+  fill: currentColor; 
 }
 
 /* Icon Positioning */

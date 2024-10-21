@@ -4,11 +4,10 @@
   left: 0;
   right: 0;
   display: flex;
-  /* border-bottom: 1px solid var(--card-border-color); */
   justify-content: space-between;
   align-items: center;
   background: var(--background-color);
-  padding: 0 1rem;
+  padding: 0.3rem 1rem;
   z-index: 50; 
 }
 

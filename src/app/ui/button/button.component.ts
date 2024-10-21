@@ -21,4 +21,5 @@ export class ButtonComponent {
   @Input() fullWidth: boolean = false;
   @Input() iconSize: string = '24px'; 
   @Input() routerLink: string | null = null;
+  @Input() alignLeft: boolean = false;
 }

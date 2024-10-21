@@ -5,7 +5,8 @@
     [ngClass]="[
       fullWidth ? 'full-width' : '',
       variant,
-      size
+      size,
+      alignLeft && fullWidth ? 'align-left' : ''
     ]"
   >
     <ng-container *ngIf="icon">
@@ -38,7 +39,8 @@
     [ngClass]="[
       fullWidth ? 'full-width' : '',
       variant,
-      size
+      size,
+      alignLeft && fullWidth ? 'align-left' : ''
     ]"
   >
     <ng-container *ngIf="icon">
@@ -63,37 +65,3 @@
     <ng-content></ng-content>
   </button>
 </ng-template>
-
-<!-- button.component.html
-<button
-  [type]="type"
-  [disabled]="disabled"
-  [ngClass]="[
-    fullWidth ? 'full-width' : '',
-    variant,
-    size
-  ]"
->
-
-  <ng-container *ngIf="icon && iconPosition === 'left'">
-    <app-svg-icon
-      [name]="icon"
-      [size]="iconSize"
-      class="icon"
-      *ngIf="iconPosition === 'left'"
-    ></app-svg-icon>
-  </ng-container>
-
-  <ng-content></ng-content>
-
-  {{ label }}
-
-
-  <ng-container *ngIf="icon && iconPosition === 'right'">
-    <app-svg-icon
-      [name]="icon"
-      [size]="iconSize"
-      class="icon"
-    ></app-svg-icon>
-  </ng-container>
-</button> -->

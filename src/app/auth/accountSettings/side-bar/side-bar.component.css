@@ -5,7 +5,6 @@
     flex-direction: column;
     align-items: flex-start;
     height: 100vh;
-    margin: 0 15px;
     
 }
 #buttons-main-sidbar{
@@ -13,6 +12,4 @@
     flex-direction: column;
     padding: 1.25rem 2.25rem;
     justify-content: center;
-
-
 }

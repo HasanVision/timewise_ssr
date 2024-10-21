@@ -4,7 +4,7 @@
   padding: 20px;
   box-shadow: 0 2px 5px var(--secondary-color);
   color: var(--card-text-color);
-  max-width: 400px;
+  width: 800px;
   margin: 20px 20px;
 }
 
