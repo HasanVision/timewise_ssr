@@ -48,7 +48,7 @@ input:focus {
 }
 
 .input-error {
-  /* border-color: var(--warning-color); */
+  border-color: var(--warning-color);
 }
 
   /* input.input-error {

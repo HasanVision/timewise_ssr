@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import axios from 'axios';
 import { SpinnerComponent } from '../../../ui/spinner/spinner.component';
 import { CommonModule } from '@angular/common';
-import { ErrorComponent } from '../../../ui/error/error.component';
+import { ErrorComponent } from '../error/error.component';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '../../../ui/button/button.component';
 import { InputTextComponent } from '../../..//ui/input-text/input-text.component';

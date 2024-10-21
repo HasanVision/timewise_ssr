@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ButtonComponent } from '../../../ui/button/button.component';
 import { InputTextComponent } from '../../../ui/input-text/input-text.component';
-import { ErrorComponent } from "../../../ui/error/error.component";
+import { ErrorComponent } from "../error/error.component";
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../../../ui/spinner/spinner.component';

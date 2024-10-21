@@ -15,7 +15,7 @@ export class ErrorComponent {
   get errorMessage(): string {
     if (this.control?.errors && (this.control.touched || this.control.dirty)) {
       if (this.control.errors['required']) {
-        return 'This field is required';
+        // return 'This field is required';
       }
       if (this.control.errors['email']) {
         return 'Invalid email address';
@@ -28,6 +28,9 @@ export class ErrorComponent {
         return 'Passwords do not match';
       }
     }
-    return ''; // Return an empty string if there are no errors
+    return ''; 
   }
 }
+
+
+// TODO: PROBABLE NEED TO REFACTOR NOT SURE IF THIS IS THE BEST APPROACH 

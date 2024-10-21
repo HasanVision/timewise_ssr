@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ body.light-theme {
 --error-color: #f44336; 
 --border-radius: 6px; 
 --transition: all 0.3s ease; 
+--icon-color: #000000;
 }
 
 /* System preference: Light theme */
@@ -39,6 +41,7 @@ body {
 --error-color: #f44336; 
 --border-radius: 6px; 
 --transition: all 0.3s ease; 
+--icon-color: #000000;
 }
 }
 
@@ -58,6 +61,7 @@ body.dark-theme {
 --border-radius: 6px;
 --border: 1px solid #3a3a3a;
 --transition: all 0.3s ease;
+--icon-color: #a43030;
 }
 
 /* System preference: Dark theme */
@@ -77,6 +81,7 @@ body {
 --border-radius: 6px;
 --border: 1px solid #3a3a3a;
 --transition: all 0.3s ease;
+--icon-color: #ca0808;
 }
 }
 
@@ -88,7 +93,7 @@ transition: var(--transition);
 
 a {
 text-decoration: none;
-/* color: var(--link-color); */
+color: var(--text-color);
 transition: var(--transition);
 }
 
