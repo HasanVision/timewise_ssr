@@ -1,4 +1,70 @@
-<!-- button.component.html -->
+<a *ngIf="routerLink; else noLink" [routerLink]="routerLink">
+  <button
+    [type]="type"
+    [disabled]="disabled"
+    [ngClass]="[
+      fullWidth ? 'full-width' : '',
+      variant,
+      size
+    ]"
+  >
+    <ng-container *ngIf="icon">
+      <app-svg-icon
+        [name]="icon"
+        [size]="'24px'"
+        class="icon"
+        *ngIf="iconPosition === 'left'"
+      ></app-svg-icon>
+    </ng-container>
+
+    {{ label }}
+
+    <ng-container *ngIf="icon && iconPosition === 'right'">
+      <app-svg-icon
+        [name]="icon"
+        [size]="'24px'"
+        class="icon"
+      ></app-svg-icon>
+    </ng-container>
+
+    <ng-content></ng-content>
+  </button>
+</a>
+
+<ng-template #noLink>
+  <button
+    [type]="type"
+    [disabled]="disabled"
+    [ngClass]="[
+      fullWidth ? 'full-width' : '',
+      variant,
+      size
+    ]"
+  >
+    <ng-container *ngIf="icon">
+      <app-svg-icon
+        [name]="icon"
+        [size]="'24px'"
+        class="icon"
+        *ngIf="iconPosition === 'left'"
+      ></app-svg-icon>
+    </ng-container>
+
+    {{ label }}
+
+    <ng-container *ngIf="icon && iconPosition === 'right'">
+      <app-svg-icon
+        [name]="icon"
+        [size]="'24px'"
+        class="icon"
+      ></app-svg-icon>
+    </ng-container>
+
+    <ng-content></ng-content>
+  </button>
+</ng-template>
+
+<!-- button.component.html
 <button
   [type]="type"
   [disabled]="disabled"
@@ -8,7 +74,7 @@
     size
   ]"
 >
-  <!-- Conditionally render the icon if icon input is provided -->
+
   <ng-container *ngIf="icon && iconPosition === 'left'">
     <app-svg-icon
       [name]="icon"
@@ -22,7 +88,7 @@
 
   {{ label }}
 
-  <!-- Render the icon if it's positioned on the right -->
+
   <ng-container *ngIf="icon && iconPosition === 'right'">
     <app-svg-icon
       [name]="icon"
@@ -30,4 +96,4 @@
       class="icon"
     ></app-svg-icon>
   </ng-container>
-</button>
+</button> -->

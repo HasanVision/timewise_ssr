@@ -1,24 +1,23 @@
 import { Component } from '@angular/core';
 import {  OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ButtonComponent } from '../../ui/button/button.component';
-import { CardComponent } from '../../ui/card/card.component';
-import { InputTextComponent } from '../../ui/input-text/input-text.component';
-import { LabelComponent } from '../../ui/label/label.component';
-import { Router } from '@angular/router';
-
+import { ButtonComponent } from '../../../ui/button/button.component';
+import { CardComponent } from '../../../ui/card/card.component';
+import { InputTextComponent } from '../../../ui/input-text/input-text.component';
+import { LabelComponent } from '../../../ui/label/label.component';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TooltipComponent } from '../../ui/tooltip/tooltip.component';
-import { CurrentUser } from '../authServices/getCurrentUser';
+import { TooltipComponent } from '../../../ui/tooltip/tooltip.component';
+import { CurrentUser } from '../../authServices/getCurrentUser';
 import axios from 'axios';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { UpdatePrimaryEmailComponent } from './update-primary-email/update-primary-email.component';
-import { UpdateNameComponent } from './update-name/update-name.component';
-import { UpdateSecondaryEmailComponent } from './update-secondary-email/update-secondary-email.component';
+import { SideBarComponent } from '../side-bar/side-bar.component';
+import { UpdatePrimaryEmailComponent } from '../update-primary-email/update-primary-email.component';
+import { UpdateNameComponent } from '../update-name/update-name.component';
+import { UpdateSecondaryEmailComponent } from '../update-secondary-email/update-secondary-email.component';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-account-settings',
   standalone: true,
   imports: [
     CommonModule,
@@ -31,12 +30,14 @@ import { UpdateSecondaryEmailComponent } from './update-secondary-email/update-s
     SideBarComponent,
     UpdateNameComponent,
     UpdatePrimaryEmailComponent,
-    UpdateSecondaryEmailComponent
+    UpdateSecondaryEmailComponent,
+    RouterModule
+    
   ],
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  templateUrl: './account-settings.component.html',
+  styleUrls: ['./account-settings.component.css']
 })
-export class SettingsComponent implements OnInit {
+export class AccountSettingsComponent implements OnInit {
   form: FormGroup;
   isLoading: boolean = false;
   errorMessage: string = '';
@@ -60,13 +61,6 @@ constructor( private fb : FormBuilder, private currentUser: CurrentUser, private
 async ngOnInit() {
   try {
     const user = await this.currentUser.getCurrentUser();
-    if (user) {
-      this.form.patchValue({
-        firstname: user.firstName,
-        lastname: user.lastName,
-        primaryEmail: user.primaryEmail,
-      });
-    }
   } catch (error) {
     this.errorMessage = 'Error loading user data.';
   }
